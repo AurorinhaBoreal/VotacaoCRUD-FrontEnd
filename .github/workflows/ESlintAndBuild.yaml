@@ -1,29 +1,58 @@
-name: Build Front and Check Project
+name: Build and Check Project
 
 on: [push, pull_request]
 
 jobs:
-  CheckProject:
+  Build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Build up Project
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install modules
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+  RunProject:
+    runs-on: ubuntu-latest
+    needs: Build  # This ensures the run_project job runs after the build job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
         run: npm install
+
+      - name: Run project
+        run: npm start
+        
+  ESlintAndSnyk:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Build
+      uses: actions/checkout@v3
+
+    - name: Install modules
+      run: npm install
     
-      - name: Run ESLint
-        run: npm run lint
+    - name: Run ESLint
+      run: npm run lint
 
-      - name: Check for vulnerabilities
-        uses: snyk/actions/node@master
-        with:
-          command: test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          
-      - name: Run TypeScript type check
-        run: npm run type-check
+    - name: Check for vulnerabilities
+      uses: snyk/actions/node@master
+      with:
+        command: test
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: Analyze build size
-        run: npm run analyze:build
+  TyposAndSize:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Run TypeScript type check
+      run: npm run type-check
+
+    - name: Analyze build size
+      run: npm run analyze:build
