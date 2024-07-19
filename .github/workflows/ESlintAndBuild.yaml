@@ -6,11 +6,22 @@ jobs:
   ESlint:
     runs-on: ubuntu-22.04
     steps:
-        - name: Build up Project
-          uses: actions/checkout@v3
+      - name: Build up Project
+        uses: actions/checkout@v3
     
-        - name: Install modules
-          run: npm install
+      - name: Set up Node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install modules
+        run: npm install
     
-        - name: Run ESLint
-          run: npm run lint
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript type check
+        run: npm run type-check
+
+      - name: Analyze build size
+        run: npm run analyze:build
