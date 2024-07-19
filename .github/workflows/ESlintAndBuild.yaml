@@ -51,6 +51,12 @@ jobs:
   TyposAndSize:
     runs-on: ubuntu-22.04
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
     - name: Run TypeScript type check
       run: npm run type-check
 
