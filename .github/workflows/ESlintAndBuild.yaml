@@ -15,6 +15,11 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Check for vulnerabilities
+        uses: snyk/actions/node@master
+        with:
+          command: test
+          
       - name: Run TypeScript type check
         run: npm run type-check
 
