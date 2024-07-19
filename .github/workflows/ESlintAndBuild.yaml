@@ -8,11 +8,6 @@ jobs:
     steps:
       - name: Build up Project
         uses: actions/checkout@v3
-    
-      - name: Set up Node 16
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
 
       - name: Install modules
         run: npm install
