@@ -1,0 +1,16 @@
+name: Build Front and Test ESlint
+
+on: [push, pull_request]
+
+jobs:
+  ESlint:
+    runs-on: ubuntu-22.04
+    steps:
+        - name: Build up Project
+          uses: actions/checkout@v3
+    
+        - name: Install modules
+          run: npm install
+    
+        - name: Run ESLint
+          run: npm run lint
