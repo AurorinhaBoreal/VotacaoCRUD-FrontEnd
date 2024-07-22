@@ -1,5 +1,5 @@
-interface User {
-    userType: string
-    firstName: string
-    surname: string
-}
+// interface User {
+//     userType: string
+//     firstName: string
+//     surname: string
+// }
