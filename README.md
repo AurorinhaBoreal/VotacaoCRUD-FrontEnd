@@ -60,10 +60,10 @@ This topic refers to all the technologies used in the project and the steps to b
 - ✅ [US000] Configure Repository
   - ✅ [US000-1] Implements a README
   - ✅ [US000-2] Configure GitHub Actions
-- 🚧 [US001] Configure Project
+- ✅ [US001] Configure Project
   - ✅ [US001-1] Create Design
-  - 🚧 [US001-2] Create React App
-  - 🚧 [US001-3] Implement React Routes
+  - ✅ [US001-2] Create React App
+  - ✅ [US001-3] Implement React Routes
 - 🚧 [US002] Home Page
   - 🚧 [US002-1] Main Structure
   - 🚧 [US002-2] Sign Up Form
