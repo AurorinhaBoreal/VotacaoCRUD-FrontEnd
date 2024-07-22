@@ -12,6 +12,10 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
     "axios": "^1.7.2",
     "express": "^4.19.2",
     "react": "^18.3.1",
@@ -29,7 +33,6 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",
-    "vite-tsconfig-paths": "^4.3.2",
     "webpack-bundle-analyzer": "^4.10.2"
   }
 }
