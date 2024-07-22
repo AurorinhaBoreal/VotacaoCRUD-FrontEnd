@@ -1,6 +1,7 @@
+import Header from "../components/Header";
 
 export default function AgendaEnded() {
   return (
-    <div>AgendaEnded</div>
+    <Header/>
   )
 }

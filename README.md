@@ -64,10 +64,10 @@ This topic refers to all the technologies used in the project and the steps to b
   - ✅ [US001-1] Create Design
   - ✅ [US001-2] Create React App
   - ✅ [US001-3] Implement React Routes
-- 🚧 [US002] Home Page
-  - 🚧 [US002-1] Main Structure
-  - 🚧 [US002-2] Sign Up Form
-  - 🚧 [US002-3] Create User Method
+- ✅ [US002] Home Page
+  - ✅ [US002-1] Main Structure
+  - ✅ [US002-2] Sign Up Form
+  - ✅ [US002-3] Create User Method
 - 🚧 [US003] Active Agendas Page
   - 🚧 [US003-1] Create Main Structure
   - 🚧 [US003-2] Get Active Agenda Method

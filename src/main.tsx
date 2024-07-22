@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import theme from './styles/theme';
+import "./styles/main.css"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import SignUp from './pages/SignUp.tsx'
+import SignUp from './pages/SignUp/index.tsx';
 import { ChakraProvider } from '@chakra-ui/react'
-import NotFound from './pages/NotFound.tsx'
+import NotFound from './pages/NotFound/index.tsx';
 import AgendaActive from './pages/AgendaActive.tsx'
 import AgendaEnded from './pages/AgendaEnded.tsx'
 import Logs from './pages/Logs.tsx'
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <RouterProvider router={router} />
     </ChakraProvider>
   </React.StrictMode>,
