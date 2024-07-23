@@ -1,28 +1,38 @@
 body {
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    overflow-x: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+}
+
+.textInput {
+    font-size: "2vh";
+    width: "4vw";
 }
 
 .page {
     display: flex;
-    width: auto;
-    height: auto;
+    height: 100%;
     background-color: var(--c-lightBlue);
 }
 
 .image {
     background-image: url("../../assets/home.jpg");
     width: 60%;
-    height: auto; /* auto -> Weird footer*/
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
-    object-fit: fill; /* fill -> Works but breaks */
+    object-fit: fill;
 }
 
 .info {
+    height: 100vh;
     width: 40%;
     background-color: var(--c-lightBlue);
     border: var(--c-yellow) solid 0.5vw;
@@ -42,13 +52,13 @@ body {
 .logo {
     margin-top: 3vw;
     margin-bottom: 0.5vw;
-    width: 10vw;
+    width: 10vh;
 }
 
 .title {
     color: var(--c-yellow);
     text-align: center;
-    font-size: 4rem;
+    font-size: 4vw;
     font-weight: 700;
     font-family: "Roboto Slab";
 }
@@ -66,7 +76,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 2vw;
-    gap: 2vw;
+    gap: 1vh;
     font-family: "Roboto Slab";
     width: 80%;
 }
