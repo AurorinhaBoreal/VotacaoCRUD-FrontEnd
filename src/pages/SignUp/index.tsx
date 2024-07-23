@@ -1,4 +1,5 @@
-import { Box, Button, FormControl, FormLabel, Image, Input, Select, Text, Tooltip } from "@chakra-ui/react";
+import { Box, Button, FormControl, FormLabel, Image, Input, Select, Text, Tooltip, useToast } from "@chakra-ui/react";
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react"
 import styles from "./index.module.css"
 import Logo from "/favicon.png"
 import {InfoIcon} from "@chakra-ui/icons"
@@ -6,8 +7,12 @@ import { useState, ChangeEvent } from "react";
 import CreateUserDTO from "../../types/CreateUserDTO";
 import userService from "../../service/userService";
 import { Link } from "react-router-dom";
+import { AxiosError, AxiosResponse } from "axios";
 
 export default function SignUp() {
+  const toast = useToast()
+  const [showError, setShowError ] = useState(false)
+  let response: AxiosResponse | string
   const [formData, setFormData] = useState<CreateUserDTO>({
     firstName: "",
     surname: "",
@@ -25,17 +30,23 @@ export default function SignUp() {
   }
 
   const handleSubmit = async () => {
-    try {
-      await userService.createUser(formData);
+      response = await userService.createUser(formData);
+      if (response = "AxiosError") {
+        toast({
+          position: "bottom-right",
+          status: "error",
+          title: 'Cadastro Inválido', 
+          description: 'Verifique os campos informados e tente novamente!' ,
+          duration: 5000,
+          isClosable: false
+        })
+      }
       setFormData({
         firstName: "",
         surname: "",
         userType: "",
         cpf: "",
       })
-    } catch (error) {
-
-    }
   }
 
   return (
@@ -51,26 +62,26 @@ export default function SignUp() {
             To vote, you first need to register yourself on our database
           </Box>
           <FormControl className={styles.forms}>
-            <Box>
+            <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>First Name:</FormLabel>
-              <Input type="text" name="firstName" value={formData.firstName} onChange={handleChange} m={5} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"1.8rem"} padding={0} width={60}/>
+              <Input className={styles.textInput} type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
             </Box>
-            <Box>
+            <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Surname:</FormLabel>
-              <Input type="text" name="surname" value={formData.surname} onChange={handleChange} m={5} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"1.8rem"} padding={0} width={60}/>
+              <Input className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
             </Box>
-            <Box>
+            <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>
                 CPF:
                 <Tooltip label="Only Digits" borderRadius={10} placement="end">
-                  <InfoIcon boxSize={6} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
+                  <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input name="cpf" value={formData.cpf} onChange={handleChange} type="text" m={5} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"1.5rem"} padding={0} width={60}/>
+              <Input className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
             </Box>
-            <Box>
+            <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Select Role:</FormLabel>
-              <Select name="userType" value={formData.userType} onChange={handleChange} placeholder='-' m={5} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"1.5rem"} padding={0} width={60}>
+              <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} height={"2.2vw"} fontSize={"2vh"} padding={0} width={"30vh"}>
                 <option value={"C"}>Common</option>
                 <option value={"A"}>Administrator</option>
               </Select>
