@@ -1,20 +1,25 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 .page {
     display: flex;
-    width: 100vw;
-    height: max-content;
-    margin: 0;
+    width: auto;
+    height: auto;
     background-color: var(--c-lightBlue);
 }
 
 .image {
     background-image: url("../../assets/home.jpg");
     width: 60%;
-    height: 49.2vw;
+    height: auto; /* auto -> Weird footer*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
-    object-fit: fill;
+    object-fit: fill; /* fill -> Works but breaks */
 }
 
 .info {
@@ -63,10 +68,12 @@
     margin-top: 2vw;
     gap: 2vw;
     font-family: "Roboto Slab";
+    width: 80%;
 }
 
 .secondaryInfo {
     color: var(--c-black);
     font-size: 1.2rem;
     margin-bottom: 1.5vw;
+    text-align: center;
 }
