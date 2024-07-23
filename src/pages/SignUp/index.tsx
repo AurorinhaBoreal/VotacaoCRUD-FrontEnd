@@ -1,5 +1,4 @@
 import { Box, Button, FormControl, FormLabel, Image, Input, Select, Text, Tooltip, useToast } from "@chakra-ui/react";
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react"
 import styles from "./index.module.css"
 import Logo from "/favicon.png"
 import {InfoIcon} from "@chakra-ui/icons"
@@ -7,12 +6,9 @@ import { useState, ChangeEvent } from "react";
 import CreateUserDTO from "../../types/CreateUserDTO";
 import userService from "../../service/userService";
 import { Link } from "react-router-dom";
-import { AxiosError, AxiosResponse } from "axios";
 
 export default function SignUp() {
   const toast = useToast()
-  const [showError, setShowError ] = useState(false)
-  let response: AxiosResponse | string
   const [formData, setFormData] = useState<CreateUserDTO>({
     firstName: "",
     surname: "",
@@ -30,8 +26,8 @@ export default function SignUp() {
   }
 
   const handleSubmit = async () => {
-      response = await userService.createUser(formData);
-      if (response = "AxiosError") {
+      let response = await userService.createUser(formData);
+      if (response == "AxiosError") {
         toast({
           position: "bottom-right",
           status: "error",
