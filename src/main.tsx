@@ -6,9 +6,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignUp from './pages/SignUp/index.tsx';
 import { ChakraProvider } from '@chakra-ui/react'
 import NotFound from './pages/NotFound/index.tsx';
-import AgendaActive from './pages/AgendaActive.tsx'
-import AgendaEnded from './pages/AgendaEnded.tsx'
-import Logs from './pages/Logs.tsx'
+import AgendaActive from './pages/AgendaActive/index.tsx'
+import AgendaEnded from './pages/AgendaEnded/index.tsx'
+import Logs from './pages/Logs/index.tsx'
 
 const router = createBrowserRouter([
   {
