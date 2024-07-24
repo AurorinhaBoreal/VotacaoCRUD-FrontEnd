@@ -7,7 +7,9 @@
 :root {
     /* COLORS */
     --c-lightBlue: #6a8eec;
+    --c-darkerBlue: #4262b3;
     --c-yellow: #edaf35;
+    --c-darkerYellow: #c49029;
     --c-white: #fff;
     --c-gray1: #e9e9e9;
     --c-gray2: #eaeaea;
