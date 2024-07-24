@@ -1,5 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
-import styles from "./index.module.css"
+import styles from "./aa.module.css"
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import PlusIcon from "../../components/PlusIcon";
