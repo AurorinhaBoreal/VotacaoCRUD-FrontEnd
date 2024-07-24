@@ -4,7 +4,9 @@ const theme = extendTheme({
     colors: {
         main: {
             100: "#6a8eec",
-            200: "#edaf35"
+            150: "#4262b3",
+            200: "#edaf35",
+            250: "#c49029"
         },
         mono: {
             100: "#ffffff",

@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, FormLabel, Image, Input, Select, Text, Tooltip, useToast } from "@chakra-ui/react";
-import styles from "./index.module.css"
+import styles from "./su.module.css"
 import Logo from "/favicon.png"
 import {InfoIcon} from "@chakra-ui/icons"
 import { useState, ChangeEvent } from "react";
