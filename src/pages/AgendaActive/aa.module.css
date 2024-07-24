@@ -1,0 +1,26 @@
+.bodyContainer {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    /* height: 100vh; */
+    background-image: url("../../assets/background.jpg");
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.titleContainer {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 2vw;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    color: var(--c-lightBlue);
+    font-size: 4vw;
+    font-family: "Roboto";
+    font-weight: 600;
+    padding: 0 0 0 20px;
+}
