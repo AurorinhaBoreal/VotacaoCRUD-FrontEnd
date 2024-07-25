@@ -1,19 +1,23 @@
+body, html {
+    height: 100%;
+}
+
 .bodyContainer {
-    display: flex;
-    justify-content: center;
-    width: auto;
-    /* height: 100vh; */
-    background-image: url("../../assets/background.jpg");
-    object-fit: cover;
-    opacity: 0.6;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    background-size: cover;
+    background-image: url("../../assets/background.png");
+    object-fit: fill;
+    box-sizing: border-box;
 }
 
 .titleContainer {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
     margin: 2vw;
     border-radius: 30px;
-    align-items: center;
 }
 
 .title {
@@ -23,4 +27,8 @@
     font-family: "Roboto";
     font-weight: 600;
     padding: 0 0 0 20px;
+}
+
+.cardWrapper {
+    display: flex;
 }

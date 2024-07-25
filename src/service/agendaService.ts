@@ -1,5 +1,6 @@
 import axios from "axios";
 import CreateAgendaDTO from "../types/CreateAgendaDTO";
+import Agenda from "../types/Agenda";
 
 export default class agendaService {
 
@@ -18,5 +19,16 @@ export default class agendaService {
             }
         }
         return "Unexpected Error Ocurred"
+    }
+
+    public static getAgendas = async () => {
+        try {
+            let response = await axios.get<Agenda[]>("http://localhost:8080/agenda")
+            console.log(response.data)
+            return response.data
+        } catch (error) {
+            console.log(error)
+            return null
+        }
     }
 }
