@@ -5,10 +5,11 @@ import {InfoIcon} from "@chakra-ui/icons"
 import { useState, ChangeEvent } from "react";
 import CreateUserDTO from "../../types/CreateUserDTO";
 import userService from "../../service/userService";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const toast = useToast()
+  const navigate = useNavigate()
   const [formData, setFormData] = useState<CreateUserDTO>({
     firstName: "",
     surname: "",
@@ -27,22 +28,24 @@ export default function SignUp() {
 
   const handleSubmit = async () => {
       let response = await userService.createUser(formData);
-      if (response == "AxiosError") {
+      if (response) {
         toast({
-          position: "bottom-right",
-          status: "error",
-          title: 'Cadastro Inválido', 
-          description: 'Verifique os campos informados e tente novamente!' ,
-          duration: 5000,
-          isClosable: false
+            position: "bottom-right",
+            status: "error",
+            title: 'Error', 
+            description: response,
+            duration: 5000,
+            isClosable: false
+          })
+      } else {
+        setFormData({
+          firstName: "",
+          surname: "",
+          userType: "",
+          cpf: "",
         })
+        navigate("/agenda-active")
       }
-      setFormData({
-        firstName: "",
-        surname: "",
-        userType: "",
-        cpf: "",
-      })
   }
 
   return (

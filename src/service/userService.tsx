@@ -5,15 +5,18 @@ export default class userService {
 
     public static createUser = async (dataUser:CreateUserDTO) => {
         try {
-            const response = await axios.post("http://localhost:8080/user", dataUser);
-            console.log(response.data)
-            return response.data;
+            await axios.post("http://localhost:8080/user", dataUser);
+            return null;
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
-                console.error(error.response?.data);
-                console.log(error.name)
-                return error.name
+                if (typeof error.response?.data === 'string') {
+                    const errorMessage = error.response.data
+                    return errorMessage
+                } else {
+                    return "Verify your Information and Connection with API"
+                }
             }
         }
+        return "Unexpected Error Ocurred"
     }
 }

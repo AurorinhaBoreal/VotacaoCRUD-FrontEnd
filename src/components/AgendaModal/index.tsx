@@ -53,7 +53,13 @@ export default function AgendaModal(props: modal) {
                 description: "You're Agenda was created Succesfully. Reload the page to see it.",
                 duration: 10000,
                 isClosable: true
-              })
+            })
+            setFormData({
+                category: "",
+                question: "",
+                cpf: "",
+                duration: 1,
+            })
         } else if (response) {
             toast({
                 position: "bottom-right",
@@ -63,8 +69,6 @@ export default function AgendaModal(props: modal) {
                 duration: 5000,
                 isClosable: false
               })
-        } else {
-            
         }
     }
 
