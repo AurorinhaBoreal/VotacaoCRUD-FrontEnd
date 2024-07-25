@@ -1,4 +1,5 @@
 interface Agenda {
+    category: string,
     question: string,
     yesVotes: number,
     noVotes: number,
@@ -7,3 +8,5 @@ interface Agenda {
     createdOn: string,
     hasEnded: boolean
 }
+
+export default Agenda
