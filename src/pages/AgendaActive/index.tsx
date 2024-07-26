@@ -3,7 +3,7 @@ import styles from "./aa.module.css"
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import PlusIcon from "../../components/PlusIcon";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import agendaService from "../../service/agendaService";
 import { debounce } from "lodash";
 import Agenda from "../../types/Agenda";
@@ -15,7 +15,7 @@ export default function AgendaActive() {
   const [data, setData] = useState<Agenda[]>()
   const toast = useToast()
 
-  const getAgendas = useCallback(debounce(async () => {
+  const getAgendas = useMemo(() => debounce(async () => {
     console.log("getAgendas called");
     try {
       const data = await agendaService.getActiveAgendas();
@@ -42,7 +42,7 @@ export default function AgendaActive() {
     } finally {
       setLoading(false)
     }
-  }, 300), []);
+  }, 300), []); 
 
   useEffect(() => {
     console.log("AgendaActive component mounted");
