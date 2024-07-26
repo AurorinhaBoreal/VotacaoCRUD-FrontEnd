@@ -77,9 +77,9 @@ This topic refers to all the technologies used in the project and the steps to b
   - ✅ [US003-6] Logic for End of the Agenda
   - ✅ [US003-7] Timed Component
   - ✅ [US003-8] Vote Logic
-- 🚧 [US004] Ended Agendas Page
-  - 🚧 [US004-1] Get Ended Agenda Method
-  - 🚧 [US004-2] Ended Agenda Component
+- ✅ [US004] Ended Agendas Page
+  - ✅ [US004-1] Get Ended Agenda Method
+  - ✅ [US004-2] Ended Agenda Component
 - 🚧 [US005] Logs Page
   - 🚧 [US005-1] Get Log Method
   - 🚧 [US005-2] Create Log Card
