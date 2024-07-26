@@ -7,7 +7,7 @@ interface info {
     agendas: Agenda[]
 }
 
-export default function CardWrapper({ emptyTitle, agendas}: info) {
+export default function ActiveCardsWrapper({ emptyTitle, agendas}: info) {
     
     return (
         <>
