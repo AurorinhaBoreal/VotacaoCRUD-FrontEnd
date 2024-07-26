@@ -18,8 +18,8 @@ export default function LogCardsWrapper({ emptyTitle, logs}: info) {
               </Box>
             ) : (
                 <Box display={"flex"} flexDirection={"column"} gap={"0.7vw"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
-                    {logs.map((log) => {
-                        return (<LogCard log={log}/>)
+                    {logs.map((log, index) => {
+                        return (<LogCard key={index} log={log}/>)
                     })}
                 </Box>
             )}

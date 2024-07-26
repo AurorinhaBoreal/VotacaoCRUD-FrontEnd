@@ -19,8 +19,8 @@ export default function EndedCardsWrapper({ emptyTitle, agendas}: info) {
               </Box>
             ) : (
                 <Box display={"flex"} gap={"2vw"} flexWrap={"wrap"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
-                    {agendas.map((agenda) => {
-                        return (<EndedCard agenda={agenda}/>)
+                    {agendas.map((agenda, index) => {
+                        return (<EndedCard key={index} agenda={agenda}/>)
                     })}
                 </Box>
             )}
