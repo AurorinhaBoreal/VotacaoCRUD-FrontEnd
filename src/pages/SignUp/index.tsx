@@ -27,7 +27,7 @@ export default function SignUp() {
   }
 
   const handleSubmit = async () => {
-      const response = await userService.createUser(formData);
+      let response = await userService.createUser(formData);
       if (response) { 
         toast({
             position: "bottom-right",

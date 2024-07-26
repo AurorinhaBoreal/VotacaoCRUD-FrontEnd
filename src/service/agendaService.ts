@@ -42,7 +42,7 @@ export default class agendaService {
 
     public static getActiveAgendas = async () => {
         try {
-            const response = await axios.get<Agenda[]>("http://localhost:8080/agenda/active")
+            let response = await axios.get<Agenda[]>("http://localhost:8080/agenda/active")
             console.log(response.data)
             return response.data
         } catch (error) {

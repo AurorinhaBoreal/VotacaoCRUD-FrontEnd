@@ -5,10 +5,11 @@ import agendaService from "../../service/agendaService"
 import CreateAgendaDTO from "../../types/CreateAgendaDTO"
 import { ChangeEvent, useState } from "react"
 
-interface modal {
-    isOpen: boolean
-    onOpen: () => void
-    onClose: () => void
+interface modal
+ {
+    isOpen: any
+    onOpen: any
+    onClose: any
 }
 
 export default function AgendaModal(props: modal) {

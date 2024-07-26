@@ -15,7 +15,7 @@ export default function AgendaActive() {
   const [data, setData] = useState<Agenda[]>()
   const toast = useToast()
 
-  const fetchAgendas = useCallback(async () => {
+  const getAgendas = useCallback(debounce(async () => {
     console.log("getAgendas called");
     try {
       const data = await agendaService.getActiveAgendas();
@@ -42,18 +42,12 @@ export default function AgendaActive() {
     } finally {
       setLoading(false)
     }
-  }, [toast]);
+  }, 300), []);
 
-  const debouncedFetchAgendas = useCallback(
-    debounce(() => fetchAgendas(), 300), [fetchAgendas]);
-
-    useEffect(() => {
-      console.log("AgendaActive component mounted");
-      debouncedFetchAgendas();
-      return () => {
-        debouncedFetchAgendas.cancel();
-      };
-    }, [debouncedFetchAgendas]);
+  useEffect(() => {
+    console.log("AgendaActive component mounted");
+    getAgendas()
+  }, [getAgendas])
 
   return (
     <Box >
