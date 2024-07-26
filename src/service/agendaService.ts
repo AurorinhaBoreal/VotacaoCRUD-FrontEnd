@@ -21,9 +21,9 @@ export default class agendaService {
         return "Unexpected Error Ocurred"
     }
 
-    public static getAgendas = async () => {
+    public static getActiveAgendas = async () => {
         try {
-            let response = await axios.get<Agenda[]>("http://localhost:8080/agenda")
+            let response = await axios.get<Agenda[]>("http://localhost:8080/agenda/active")
             console.log(response.data)
             return response.data
         } catch (error) {

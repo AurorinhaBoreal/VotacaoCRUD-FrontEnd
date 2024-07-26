@@ -1,4 +1,4 @@
-import { Box, Text, useToast } from "@chakra-ui/react";
+import { Box, Spinner, Text, useToast } from "@chakra-ui/react";
 import styles from "./aa.module.css"
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -10,6 +10,7 @@ import Agenda from "../../types/Agenda";
 import CardWrapper from "../../components/CardWrapper";
 
 export default function AgendaActive() {
+  const [loading, setLoading] = useState(true)
   const [emptyText, setEmptyText] = useState(false)
   const [data, setData] = useState<Agenda[]>()
   const toast = useToast()
@@ -17,7 +18,7 @@ export default function AgendaActive() {
   const getAgendas = useCallback(debounce(async () => {
     console.log("getAgendas called");
     try {
-      const data = await agendaService.getAgendas();
+      const data = await agendaService.getActiveAgendas();
       if (!data) {
         throw new Error("Connection Error");
       }
@@ -38,6 +39,8 @@ export default function AgendaActive() {
         duration: 5000,
         isClosable: false
       });
+    } finally {
+      setLoading(false)
     }
   }, 300), []);
 
@@ -54,14 +57,14 @@ export default function AgendaActive() {
             <Text className={styles.title}>Active Agendas</Text>
             <PlusIcon/>
           </Box>
-          {data ? <CardWrapper agendas={data} emptyTitle={emptyText}/> : (
+          {loading ? (
+            <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <CardWrapper agendas={data} emptyTitle={emptyText}/> : (
             <Box bg={"rgba(0,0,0,0.7)"} borderRadius={20}>
               <Text width={"30ch"} color={"red"} fontSize={"2vw"} padding={"2vw"} textAlign={"justify"}>
-                Cannot Load Active Agendas, please verify the connection with the API. If considered necessary, create an Issue in the GitHub repository
+                Please verify your connection. If considered necessary, create an Issue in the GitHub repository
               </Text>
             </Box>
           ) }
-          
         </Box>
       <Footer/>
     </Box>

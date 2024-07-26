@@ -6,7 +6,7 @@ body, html {
     display: flex !important;
     flex-direction: column;
     align-items: center;
-    min-height: 80vh;
+    min-height: 85vh;
     background-size: cover;
     background-image: url("../../assets/background.png");
     object-fit: fill;

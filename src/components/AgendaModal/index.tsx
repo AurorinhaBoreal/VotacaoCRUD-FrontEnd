@@ -50,7 +50,7 @@ export default function AgendaModal(props: modal) {
                 position: "bottom-right",
                 status: "success",
                 title: 'Agenda Created', 
-                description: "You're Agenda was created Succesfully. Reload the page to see it.",
+                description: "Your Agenda was created Succesfully. Reload the page to see it.",
                 duration: 10000,
                 isClosable: true
             })
