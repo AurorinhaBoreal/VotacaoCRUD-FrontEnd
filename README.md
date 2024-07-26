@@ -80,9 +80,9 @@ This topic refers to all the technologies used in the project and the steps to b
 - ✅ [US004] Ended Agendas Page
   - ✅ [US004-1] Get Ended Agenda Method
   - ✅ [US004-2] Ended Agenda Component
-- 🚧 [US005] Logs Page
-  - 🚧 [US005-1] Get Log Method
-  - 🚧 [US005-2] Create Log Card
+- ✅ [US005] Logs Page
+  - ✅ [US005-1] Get Log Method
+  - ✅ [US005-2] Create Log Card
 - 🚧 [US006] Tests
   - 🚧 [US006-1] Implement Tests in Home Page
   - 🚧 [US006-2] Implement Tests in Active Agendas Page
