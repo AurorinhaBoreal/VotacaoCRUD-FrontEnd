@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import agendaService from "../../service/agendaService";
 import { debounce } from "lodash";
 import Agenda from "../../types/Agenda";
-import CardWrapper from "../../components/CardWrapper";
+import ActiveCardsWrapper from "../../components/ActiveCardsWrapper";
 
 export default function AgendaActive() {
   const [loading, setLoading] = useState(true)
@@ -52,20 +52,20 @@ export default function AgendaActive() {
   return (
     <Box >
       <Header/>
-        <Box className={styles.bodyContainer}>
-          <Box className={styles.titleContainer} width={"fit-content"}>
-            <Text className={styles.title}>Active Agendas</Text>
-            <PlusIcon/>
-          </Box>
-          {loading ? (
-            <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <CardWrapper agendas={data} emptyTitle={emptyText}/> : (
-            <Box bg={"rgba(0,0,0,0.7)"} borderRadius={20}>
-              <Text width={"30ch"} color={"red"} fontSize={"2vw"} padding={"2vw"} textAlign={"justify"}>
-                Please verify your connection. If considered necessary, create an Issue in the GitHub repository
-              </Text>
-            </Box>
-          ) }
+      <Box className={styles.bodyContainer}>
+        <Box className={styles.titleContainer} width={"fit-content"}>
+          <Text className={styles.title}>Active Agendas</Text>
+          <PlusIcon/>
         </Box>
+        {loading ? (
+          <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <ActiveCardsWrapper agendas={data} emptyTitle={emptyText}/> : (
+          <Box bg={"rgba(0,0,0,0.7)"} borderRadius={20}>
+            <Text width={"30ch"} color={"red"} fontSize={"2vw"} padding={"2vw"} textAlign={"justify"}>
+              Please verify your connection. If considered necessary, create an Issue in the GitHub repository
+            </Text>
+          </Box>
+        ) }
+      </Box>
       <Footer/>
     </Box>
   )
