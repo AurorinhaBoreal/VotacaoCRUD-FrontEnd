@@ -9,8 +9,8 @@ interface info {
 
 export default function EndedCards({agenda}: info) {
   let color: string;
-  let createdIn: string[] = agenda.createdOn.split("T");
-  let endedIn: string[] = agenda.finishOn.split("T");
+  const createdIn: string[] = agenda.createdOn.split("T");
+  const endedIn: string[] = agenda.finishOn.split("T");
 
   switch (agenda.category) {
     case "TECHNOLOGY":
