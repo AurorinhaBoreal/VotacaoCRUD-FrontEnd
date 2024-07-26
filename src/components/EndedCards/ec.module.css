@@ -1,0 +1,40 @@
+.cardContainer {
+    background-color: var(--c-lightBlue);
+    margin-bottom: 2vw;
+    width: 18vw;
+    color: var(--c-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1vw;
+}
+
+.question {
+    margin: 1vw 2vw 1.5vw 2vw;
+    font-size: 1.5vw !important;
+    text-align: center;
+    font-weight: 500 !important;
+    font-family: "Roboto" !important;
+}
+
+.dateContainer {
+    font-family: "Roboto";
+}
+
+.dateTitle, .dateInfo {
+    text-align: center;
+    color: var(--c-yellow);
+}
+
+.dateTitle {
+    opacity: 0.8;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+.dateInfo {
+    font-size: 1.2vw;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
+}
