@@ -68,7 +68,7 @@ This topic refers to all the technologies used in the project and the steps to b
   - ✅ [US002-1] Main Structure
   - ✅ [US002-2] Sign Up Form
   - ✅ [US002-3] Create User Method
-- 🚧 [US003] Active Agendas Page
+- ✅ [US003] Active Agendas Page
   - ✅ [US003-1] Create Main Structure
   - ✅ [US003-2] Get Active Agenda Method
   - ✅ [US003-3] Create Agenda Modal
@@ -76,7 +76,7 @@ This topic refers to all the technologies used in the project and the steps to b
   - ✅ [US003-5] Active Agenda Component
   - ✅ [US003-6] Logic for End of the Agenda
   - ✅ [US003-7] Timed Component
-  - 🚧 [US003-8] Vote Logic
+  - ✅ [US003-8] Vote Logic
 - 🚧 [US004] Ended Agendas Page
   - 🚧 [US004-1] Get Ended Agenda Method
   - 🚧 [US004-2] Ended Agenda Component
