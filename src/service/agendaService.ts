@@ -24,13 +24,11 @@ export default class agendaService {
 
     public static sendVote = async (dataVote: AddVote) => {
         try {
-            console.log("Dados "+dataVote.cpf+""+dataVote.question+""+dataVote.no+""+dataVote.yes)
             await axios.post("http://localhost:8080/agenda/vote", dataVote)
             return "success";
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
                 if (typeof error.response?.data === 'string') {
-                    console.log("ERRO: "+error.response.data)
                     const errorMessage = error.response.data
                     return errorMessage
                 } else {
@@ -43,10 +41,8 @@ export default class agendaService {
     public static getActiveAgendas = async () => {
         try {
             const response = await axios.get<Agenda[]>("http://localhost:8080/agenda/active")
-            console.log(response.data)
             return response.data
         } catch (error) {
-            console.log(error)
             return null
         }
     }

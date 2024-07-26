@@ -23,7 +23,6 @@ export default function SignUp() {
       ...formData,
       [name]: value
     });
-    console.log(formData)
   }
 
   const handleSubmit = async () => {

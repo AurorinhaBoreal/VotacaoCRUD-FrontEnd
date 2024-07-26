@@ -43,7 +43,6 @@ export default function AgendaActive() {
   }, 300), [toast]); 
 
   useEffect(() => {
-    console.log("AgendaEnded component mounted");
     getAgendas()
   }, [getAgendas])
 

@@ -7,7 +7,7 @@ interface info {
   agenda: Agenda
 }
 
-export default function EndedCards({agenda}: info) {
+export default function EndedCard({agenda}: info) {
   let color: string;
   const createdIn: string[] = agenda.createdOn.split("T");
   const endedIn: string[] = agenda.finishOn.split("T");

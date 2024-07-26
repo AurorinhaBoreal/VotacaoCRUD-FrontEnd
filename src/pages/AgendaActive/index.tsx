@@ -16,7 +16,6 @@ export default function AgendaActive() {
   const toast = useToast()
 
   const getAgendas = useMemo(() => debounce(async () => {
-    console.log("getAgendas called");
     try {
       const data = await agendaService.getActiveAgendas();
       if (!data) {
@@ -45,7 +44,6 @@ export default function AgendaActive() {
   }, 300), [toast]); 
 
   useEffect(() => {
-    console.log("AgendaActive component mounted");
     getAgendas()
   }, [getAgendas])
 
