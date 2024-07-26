@@ -49,7 +49,7 @@ export default function AgendaModal(props: modal) {
             toast({
                 position: "bottom-right",
                 status: "success",
-                title: 'Agenda Created', 
+                title: "Agenda Created",
                 description: "Your Agenda was created Succesfully. Reload the page to see it.",
                 duration: 10000,
                 isClosable: true
