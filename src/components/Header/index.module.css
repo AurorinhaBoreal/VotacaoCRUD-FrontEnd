@@ -1,0 +1,47 @@
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+    height: 6.5vw;
+    background-color: var(--c-lightBlue);
+    color: var(--c-white);
+    font-size: 2vw;
+    font-weight: 600;
+    border-bottom: var(--c-yellow) solid 0.5vw; 
+}
+
+.infoLeft, .infoRight {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo {
+    height: 5vw;
+    margin: 1vw;
+    margin-left: 2vw;
+}
+
+.mainTitle{
+    font-size: 2.8vw;
+    margin-left: 1vw;
+}
+
+.headerDivider {
+    background-color: var(--c-yellow);
+    width: 0.4vw;
+    height: 3.2vw;
+    margin: 0 1.5rem;
+    border-radius: 20px;
+}
+
+.linksWrapper{
+    display: flex;
+    align-items: center;
+}
+
+.infoRight {
+    color: var(--c-yellow);
+    margin-right: 3vw;
+    font-weight: 700;
+}

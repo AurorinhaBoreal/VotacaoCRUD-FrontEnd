@@ -1,0 +1,48 @@
+.modalHeader{
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 5px !important;
+    font-size: 1.7vw !important;
+    font-family: "Roboto Slab";
+    color: #000;
+}
+
+.formContainer {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.inputLabels {
+    font-family: "Roboto";
+    font-size: 1.5vw !important;
+    text-align: center !important;
+    margin-right: 0 !important;
+}
+
+.inputs {
+    margin-bottom: 2vw !important;
+    width: 20vw !important;
+    height: 2vw !important;
+    background-color: #fff !important;
+    border: 2px solid var(--c-lightBlue) !important;
+    text-align: center;
+}
+
+.category {
+    background-color: #fff !important;
+    border: 2px solid var(--c-lightBlue) !important;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 2vw !important;
+    width: 20vw !important;
+    height: 5vw !important;
+    background-color: #fff !important;
+    border: 2px solid var(--c-lightBlue) !important;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+body, html {
+    height: 100%;
+}
+
+.bodyContainer {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    min-height: 85vh;
+    background-size: cover;
+    background-image: url("../../assets/background.png");
+    object-fit: fill;
+    box-sizing: border-box;
+}
+
+.titleContainer {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 2vw;
+    border-radius: 30px;
+}
+
+.title {
+    display: flex;
+    color: var(--c-lightBlue);
+    font-size: 4vw;
+    font-family: "Roboto";
+    font-weight: 600;
+    padding: 0 0 0 20px;
+}

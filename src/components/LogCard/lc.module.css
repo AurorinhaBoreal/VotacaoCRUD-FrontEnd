@@ -1,0 +1,48 @@
+.cardContainer {
+    display: flex;
+    background-color: var(--c-gray2);
+    margin-bottom: 1.5vw;
+    width: 40vw;
+    color: var(--c-lightBlue);
+    border: 0.5vw solid var(--c-lightBlue);
+    border-radius: 1vw;
+    padding: 1vw;
+}
+
+.generalInfo {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 1vw;
+}
+
+.title {
+    opacity: 0.7;
+    font-size: 1.1vw;
+}
+
+.info {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.operationObj {
+    display: flex;
+    justify-content: space-between;
+}
+
+.realizedOn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.objInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    padding: 0 1vw;
+}
+
