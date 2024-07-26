@@ -6,6 +6,7 @@ interface Agenda {
     totalVotes: number,
     duration: number,
     createdOn: string,
+    finishOn: string,
     hasEnded: boolean
 }
 

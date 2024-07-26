@@ -50,4 +50,13 @@ export default class agendaService {
             return null
         }
     }
+
+    public static getEndedAgendas = async () => {
+        try {
+            const response = await axios.get<Agenda[]>("http://localhost:8080/agenda")
+            return response.data
+        } catch (error) {
+            return null
+        }
+    }
 }
