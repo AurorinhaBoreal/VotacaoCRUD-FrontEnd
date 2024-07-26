@@ -26,7 +26,6 @@ export default function ActiveCard({agenda}: info) {
       yes: vote === "yes",
       no: vote === "no",
     }
-    (vote+" | Question: "+agenda.question)
     const response = await agendaService.sendVote(newVote)
     if (response == "success") {
       toast({
