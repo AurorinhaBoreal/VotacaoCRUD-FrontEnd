@@ -44,12 +44,13 @@ export default function AgendaActive() {
     }
   }, [toast]);
 
-  const getAgendas = useCallback(debounce(fetchAgendas, 300), [fetchAgendas]);
+  const debouncedFetchAgendas = useCallback(
+    debounce(() => fetchAgendas(), 300), [fetchAgendas]);
 
   useEffect(() => {
     console.log("AgendaActive component mounted");
-    getAgendas()
-  }, [getAgendas])
+    debouncedFetchAgendas();
+  }, [debouncedFetchAgendas]);
 
   return (
     <Box >
