@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react"
 import Agenda from "../../types/Agenda"
-import ActiveCards from "../ActiveCards"
+import ActiveCard from "../ActiveCard"
 
 interface info {
     emptyTitle: boolean
@@ -20,7 +20,7 @@ export default function ActiveCardsWrapper({ emptyTitle, agendas}: info) {
             ) : (
                 <Box display={"flex"} gap={"2vw"} flexWrap={"wrap"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
                     {agendas.map((agenda) => {
-                        return (<ActiveCards agenda={agenda}/>)
+                        return (<ActiveCard agenda={agenda}/>)
                     })}
                 </Box>
             )}

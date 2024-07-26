@@ -9,14 +9,14 @@ interface info {
   agenda: Agenda
 }
 
-export default function ActiveCards({agenda}: info) {
+export default function ActiveCard({agenda}: info) {
   const [cpf, setCpf] = useState("");
   const toast = useToast()
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const {value} = e.target;
     setCpf(value);
-    console.log(cpf);
+    (cpf);
   }
 
   const handleVote = async (vote: string) => {
@@ -26,7 +26,7 @@ export default function ActiveCards({agenda}: info) {
       yes: vote === "yes",
       no: vote === "no",
     }
-    console.log(vote+" | Question: "+agenda.question)
+    (vote+" | Question: "+agenda.question)
     const response = await agendaService.sendVote(newVote)
     if (response == "success") {
       toast({

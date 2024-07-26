@@ -28,13 +28,11 @@ export default function AgendaModal(props: modal) {
             ...formData,
             [name]: value
         });
-        console.log(formData)
     }
 
     const handleSubmit = async () => {
         if (formData.duration < 1) {
             formData.duration = 1
-            console.log(formData)
             toast({
                 position: "bottom-right",
                 status: "warning",
