@@ -1,0 +1,18 @@
+.footerContainer {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    background-color: var(--c-lightBlue);
+    color: var(--c-black);
+    border-top: var(--c-yellow) solid 0.5vw;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.footerText {
+    font-size: 1vw;
+}
