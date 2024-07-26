@@ -42,7 +42,7 @@ export default function AgendaActive() {
     } finally {
       setLoading(false)
     }
-  }, 300), []); 
+  }, 300), [toast]); 
 
   useEffect(() => {
     console.log("AgendaActive component mounted");

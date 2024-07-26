@@ -7,9 +7,9 @@ import { ChangeEvent, useState } from "react"
 
 interface modal
  {
-    isOpen: any
-    onOpen: any
-    onClose: any
+    isOpen: boolean
+    onOpen: () => void
+    onClose: () => void
 }
 
 export default function AgendaModal(props: modal) {
