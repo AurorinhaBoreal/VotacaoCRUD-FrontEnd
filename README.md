@@ -18,7 +18,9 @@ For it to work you'll need to first run the back end. The instructions for runni
 
 After that, you can run the front using the command:
 
-- In Development :D
+- First use ```npm install``` to install the necessary dependencies
+
+- And after that you use ```npm run dev``` to run the project itself
 
 ## Choosen Design
 
