@@ -14,13 +14,15 @@ In conjuction with the API, with this FrontEnd you can register Users, create Ag
 
 To run the the front end is simple.
 
-For it to work you'll need to first run the back end. The instructions for running it can be found on its own repository.
+You have two options:
 
-After that, you can run the front using the command:
+- Either you can simply access the deployed version [Here](https://votacao-front.onrender.com/)
 
-- First use ```npm install``` to install the necessary dependencies
+- Or you can create a Docker Image locally through the commands
 
-- And after that you use ```npm run dev``` to run the project itself
+  - Create the docker image ```docker build -t person-frontend .```
+
+  - Create and Run the Docker Container ```docker run -it -p 3000:80 person-frontend```
 
 ## Choosen Design
 
