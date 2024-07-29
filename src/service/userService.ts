@@ -2,10 +2,13 @@ import axios from "axios";
 import CreateUserDTO from "../types/CreateUserDTO";
 
 export default class userService {
+    private static readonly API_URL = import.meta.env.VITE_API_URL;
 
     public static createUser = async (dataUser:CreateUserDTO) => {
         try {
-            await axios.post("http://localhost:8080/user", dataUser);
+            console.log(this.API_URL)
+            console.log("Environment Variables:", process.env);
+            await axios.post(`${this.API_URL}/user`, dataUser);
             return null;
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
