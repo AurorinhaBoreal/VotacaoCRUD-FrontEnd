@@ -22,7 +22,7 @@ You have two options:
 
   - Create the docker image ```docker compose up -d```
   
-Obs: To run the frontEnd with the backEnd locally you have to change the API_URL env variable to the localhost url
+Obs: To run the frontEnd with the backEnd locally you have to change the API_URL env variable to the localhost. You need to do it before running docker compose up -d, or else you'll have to delete the container and the image that was already created using ```docker rm [containerID]``` and ```docker rmi [imageID]``` respectively.
 
 ## Choosen Design
 
