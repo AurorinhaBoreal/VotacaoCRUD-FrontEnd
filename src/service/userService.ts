@@ -6,8 +6,6 @@ export default class userService {
 
     public static createUser = async (dataUser:CreateUserDTO) => {
         try {
-            console.log(this.API_URL)
-            console.log("Environment Variables:", process.env);
             await axios.post(`${this.API_URL}/user`, dataUser);
             return null;
         } catch (error) {

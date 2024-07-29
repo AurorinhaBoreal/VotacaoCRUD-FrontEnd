@@ -4,11 +4,10 @@ import Agenda from "../types/Agenda";
 import AddVote from "../types/AddVote";
 
 export default class agendaService {
-    private static readonly API_URL = import.meta.env.API_URL;
+    private static readonly API_URL = import.meta.env.VITE_API_URL;
 
     public static createAgenda = async (dataAgenda:CreateAgendaDTO) => {
         try {
-            console.log(this.API_URL);
             await axios.post(`${this.API_URL}/agenda`, dataAgenda)
             return "sucess"
         } catch (error) {
