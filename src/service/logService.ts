@@ -3,10 +3,12 @@ import Log from "../types/Log"
 
 
 export default class LogService {
-    
+    private static readonly API_URL = import.meta.env.API_URL;
+
     public static getLogs = async () => {
         try {
-            const response = await axios.get<Log[]>("http://localhost:8080/log")
+            console.log(this.API_URL)
+            const response = await axios.get<Log[]>(`${this.API_URL}/log`)
             console.log(response.data)
             return response.data
         } catch (error) {
