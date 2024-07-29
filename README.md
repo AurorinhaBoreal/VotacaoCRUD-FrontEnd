@@ -18,11 +18,11 @@ You have two options:
 
 - Either you can simply access the deployed version [Here](https://votacao-front.onrender.com/)
 
-- Or you can create a Docker Image locally through the commands
+- Or you can create a Docker Image and Container locally through the commands
 
-  - Create the docker image ```docker build -t person-frontend .```
-
-  - Create and Run the Docker Container ```docker run -it -p 3000:80 person-frontend```
+  - Create the docker image ```docker compose up -d```
+  
+Obs: To run the frontEnd with the backEnd locally you have to change the API_URL env variable to the localhost url
 
 ## Choosen Design
 
