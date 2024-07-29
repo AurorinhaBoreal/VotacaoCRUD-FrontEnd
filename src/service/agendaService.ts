@@ -4,10 +4,12 @@ import Agenda from "../types/Agenda";
 import AddVote from "../types/AddVote";
 
 export default class agendaService {
+    private static readonly API_URL = import.meta.env.API_URL;
 
     public static createAgenda = async (dataAgenda:CreateAgendaDTO) => {
         try {
-            await axios.post("http://localhost:8080/agenda", dataAgenda)
+            console.log(this.API_URL);
+            await axios.post(`${this.API_URL}/agenda`, dataAgenda)
             return "sucess"
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
@@ -24,7 +26,7 @@ export default class agendaService {
 
     public static sendVote = async (dataVote: AddVote) => {
         try {
-            await axios.post("http://localhost:8080/agenda/vote", dataVote)
+            await axios.post(`${this.API_URL}/agenda/vote`, dataVote)
             return "success";
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
@@ -40,7 +42,7 @@ export default class agendaService {
 
     public static getActiveAgendas = async () => {
         try {
-            const response = await axios.get<Agenda[]>("http://localhost:8080/agenda/active")
+            const response = await axios.get<Agenda[]>(`${this.API_URL}/agenda/active`)
             return response.data
         } catch (error) {
             return null
@@ -49,7 +51,8 @@ export default class agendaService {
 
     public static getEndedAgendas = async () => {
         try {
-            const response = await axios.get<Agenda[]>("http://localhost:8080/agenda")
+            console.log(this.API_URL)
+            const response = await axios.get<Agenda[]>(`${this.API_URL}/agenda`)
             return response.data
         } catch (error) {
             return null
