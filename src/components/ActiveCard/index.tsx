@@ -23,8 +23,7 @@ export default function ActiveCard({agenda}: info) {
     const newVote: AddVote = {
       question: agenda.question,
       cpf: cpf,
-      yes: vote === "yes",
-      no: vote === "no",
+      vote: vote
     }
     const response = await agendaService.sendVote(newVote)
     if (response == "success") {
@@ -76,8 +75,8 @@ export default function ActiveCard({agenda}: info) {
         <Box width={"100%"} display={"flex"} flexDirection={"column"} alignItems={"center"}>
           <Input onChange={handleChange} value={cpf} type="number" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" w={"60%"} h={"2vw"} bg={"var(--c-gray1)"} color={"black"} fontSize={"1vw"}/>
           <Box className={styles.buttonWrapper}>
-            <Button className={styles.voteButton} onClick={() => handleVote("yes")} bg={"var(--c-green)"} _hover={{ bg: "main.350" }}>YES</Button>
-            <Button className={styles.voteButton} onClick={() => handleVote("no")} bg={"var(--c-red)"} _hover={{ bg: "main.450" }}>NO</Button>
+            <Button className={styles.voteButton} onClick={() => handleVote("Y")} bg={"var(--c-green)"} _hover={{ bg: "main.350" }}>YES</Button>
+            <Button className={styles.voteButton} onClick={() => handleVote("N")} bg={"var(--c-red)"} _hover={{ bg: "main.450" }}>NO</Button>
           </Box>
         </Box>
     </Box>
