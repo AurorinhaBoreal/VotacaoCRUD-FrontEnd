@@ -1,8 +1,7 @@
 interface AddVote {
     question: string,
     cpf: string,
-    yes: boolean,
-    no: boolean
+    vote: string
 }
 
 export default AddVote;

@@ -87,16 +87,11 @@ This topic refers to all the technologies used in the project and the steps to b
 - ✅ [US005] Logs Page
   - ✅ [US005-1] Get Log Method
   - ✅ [US005-2] Create Log Card
-- 🚧 [US006] Tests
-  - 🚧 [US006-1] Implement Tests in Home Page
-  - 🚧 [US006-2] Implement Tests in Active Agendas Page
-  - 🚧 [US006-3] Implement Tests in Ended Agendas Page
-  - 🚧 [US006-4] Implement Tests in Logs Page
 
 ### US's - Extra
 
 - 🚧 [US00X] Extra Features
-  - 🚧 [US00X-1] Refactor for Better Responsiveness
+  - 🚧 [US00X-1] Refactor for Better Responsiveness - MediaQuery
 
 
 ## License
