@@ -2,6 +2,7 @@ import { Box, Button, FormControl, FormLabel, Image, Input, Select, Text, Toolti
 import styles from "./su.module.css"
 import Logo from "/favicon.png"
 import {InfoIcon} from "@chakra-ui/icons"
+import InputMask from "react-input-mask"
 import { useState, ChangeEvent } from "react";
 import CreateUserDTO from "../../types/CreateUserDTO";
 import userService from "../../service/userService";
@@ -19,32 +20,45 @@ export default function SignUp() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    if (name == "cpf") {
+      console.log("Antes: "+value)
+      let formattedCPF = value.replace(/\D/g, '');
+      console.log("DEPOIS:"+formattedCPF)
+      setFormData({
+        ...formData,
+        cpf: formattedCPF,
+      });
+      ("DEPOIS de ADD"+formData.cpf)
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   }
 
   const handleSubmit = async () => {
-      const response = await userService.createUser(formData);
-      if (response) { 
-        toast({
-            position: "bottom-right",
-            status: "error",
-            title: 'Error', 
-            description: response,
-            duration: 5000,
-            isClosable: false
-          })
-      } else {
-        setFormData({
-          firstName: "",
-          surname: "",
-          userType: "",
-          cpf: "",
+    
+    console.log("Formatado?"+formData.cpf)
+    const response = await userService.createUser(formData);
+    if (response) { 
+      toast({
+          position: "bottom-right",
+          status: "error",
+          title: 'Error', 
+          description: response,
+          duration: 5000,
+          isClosable: false
         })
-        navigate("/agenda-active")
-      }
+    } else {
+      setFormData({
+        firstName: "",
+        surname: "",
+        userType: "",
+        cpf: "",
+      })
+      navigate("/agenda-active")
+    }
   }
 
   return (
@@ -66,7 +80,7 @@ export default function SignUp() {
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Surname:</FormLabel>
-              <Input className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
+              <Input className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"} />
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>
@@ -75,7 +89,7 @@ export default function SignUp() {
                   <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
+              <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} fontSize={"2vh"} height={"2.2vw"} padding={0} width={"30vh"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Select Role:</FormLabel>
