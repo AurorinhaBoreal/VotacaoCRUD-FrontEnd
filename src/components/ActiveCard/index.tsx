@@ -4,6 +4,7 @@ import Agenda from "../../types/Agenda"
 import AddVote from "../../types/AddVote"
 import { ChangeEvent, useState } from "react"
 import agendaService from "../../service/agendaService"
+import getBadgeColor from "../../utils/getBadgeColor"
 
 interface info {
   agenda: Agenda
@@ -12,6 +13,7 @@ interface info {
 export default function ActiveCard({agenda}: info) {
   const [cpf, setCpf] = useState("");
   const toast = useToast()
+  const color = getBadgeColor(agenda.category);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const {value} = e.target;
@@ -47,25 +49,6 @@ export default function ActiveCard({agenda}: info) {
       })
     }
     
-  }
-
-  let color: string;
-  switch (agenda.category) {
-    case "TECHNOLOGY":
-      color = "orange"
-      break;
-    case "SPORTS":
-      color = "green"
-      break;
-    case "PROGRAMMING":
-      color = "purple"
-      break;
-    case "OPINION":
-      color = "blue"
-      break;
-    default:
-      color = "gray"
-      break;
   }
 
   return (
