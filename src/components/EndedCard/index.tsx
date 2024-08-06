@@ -2,33 +2,16 @@ import { Badge, Box, Text } from "@chakra-ui/react"
 import styles from "./ec.module.css"
 import Agenda from "../../types/Agenda"
 import VotesContainer from "./Votes";
+import getBadgeColor from "../../utils/getBadgeColor"
 
 interface info {
   agenda: Agenda
 }
 
 export default function EndedCard({agenda}: info) {
-  let color: string;
   const createdIn: string[] = agenda.createdOn.split("T");
   const endedIn: string[] = agenda.finishOn.split("T");
-
-  switch (agenda.category) {
-    case "TECHNOLOGY":
-      color = "orange"
-      break;
-    case "SPORTS":
-      color = "green"
-      break;
-    case "PROGRAMMING":
-      color = "purple"
-      break;
-    case "OPINION":
-      color = "blue"
-      break;
-    default:
-      color = "gray"
-      break;
-  }
+  const color = getBadgeColor(agenda.category);
 
   return (
     <Box className={styles.cardContainer}>
