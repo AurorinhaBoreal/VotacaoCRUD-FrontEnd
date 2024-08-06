@@ -1,5 +1,6 @@
 import { Box, Button, FormControl, FormLabel, Input, Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Select, Textarea, Tooltip, useToast } from "@chakra-ui/react"
 import styles from "./am.module.css"
+import InputMask from "react-input-mask"
 import { InfoIcon } from "@chakra-ui/icons"
 import agendaService from "../../service/agendaService"
 import CreateAgendaDTO from "../../types/CreateAgendaDTO"
@@ -24,49 +25,96 @@ export default function AgendaModal(props: modal) {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+        if (name == "cpf") {
+            const formattedCPF: string = value.replace(/\D/g, '');
+            setFormData({
+              ...formData,
+              cpf: formattedCPF,
+            });
+            ("DEPOIS de ADD"+formData.cpf)
+          } else {
+            setFormData({
+              ...formData,
+              [name]: value
+            });
+          }
     }
 
-    const handleSubmit = async () => {
-        if (formData.duration < 1) {
-            formData.duration = 1
+    const validateQuestion = (): boolean => {
+        if (formData.question.includes("?")) {
+            return true
+        } else {
             toast({
                 position: "bottom-right",
                 status: "warning",
-                title: 'Minimum Duration', 
-                description: 'The duration was set to mininum, because a valid one was not informed!',
-                duration: 5000,
+                title: "Question Format",
+                description: "Your question didn't have a question Mark. For better redability and logic insert one.",
+                duration: 8000,
                 isClosable: true
             })
-        }   
-        const response = await agendaService.createAgenda(formData);
-        if (response == "sucess") {
-            toast({
-                position: "bottom-right",
-                status: "success",
-                title: "Agenda Created",
-                description: "Your Agenda was created Succesfully. Reload the page to see it.",
-                duration: 10000,
-                isClosable: true
-            })
-            setFormData({
-                category: "",
-                question: "",
-                cpf: "",
-                duration: 1,
-            })
-        } else if (response) {
+            return false
+        }
+    }
+
+    const handleSubmit = async () => {
+        const validation: boolean = validateQuestion();
+        if (validation) {
+            if (formData.duration < 1) {
+                formData.duration = 1
+                toast({
+                    position: "bottom-right",
+                    status: "warning",
+                    title: 'Minimum Duration', 
+                    description: 'The duration was set to mininum (1 Minute), because a valid one was not informed!',
+                    duration: 5000,
+                    isClosable: true
+                })
+            } else if (formData.duration > 999) {
+                formData.duration = 999
+                toast({
+                    position: "bottom-right",
+                    status: "warning",
+                    title: 'Maximum Duration', 
+                    description: 'The duration was set to maximum (999 Minutes), because the maximum one was excedeed!',
+                    duration: 5000,
+                    isClosable: true
+                })
+            }
+            const response = await agendaService.createAgenda(formData);
+            if (response == "sucess") {
+                toast({
+                    position: "bottom-right",
+                    status: "success",
+                    title: "Agenda Created",
+                    description: "Your Agenda was created Succesfully. Reload the page to see it.",
+                    duration: 10000,
+                    isClosable: true
+                })
+                setFormData({
+                    category: "",
+                    question: "",
+                    cpf: "",
+                    duration: 1,
+                })
+            } else if (response) {
+                toast({
+                    position: "bottom-right",
+                    status: "error",
+                    title: 'Error', 
+                    description: response,
+                    duration: 5000,
+                    isClosable: false
+                })
+            }
+        } else {
             toast({
                 position: "bottom-right",
                 status: "error",
-                title: 'Error', 
-                description: response,
+                title: 'Invalid Creation', 
+                description: "Please verify your information and try again.",
                 duration: 5000,
                 isClosable: false
-              })
+            })
         }
     }
 
@@ -104,7 +152,7 @@ export default function AgendaModal(props: modal) {
                                 <InfoIcon maxWidth={25} boxSize={"1vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                             </Tooltip>
                         </FormLabel>
-                        <Input className={styles.inputs} type="number" name="cpf" value={formData.cpf} onChange={handleChange}/>
+                        <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.inputs} type="text" name="cpf" value={formData.cpf} onChange={handleChange}/>
                     </FormControl>
                     <Button
                         display="flex"
