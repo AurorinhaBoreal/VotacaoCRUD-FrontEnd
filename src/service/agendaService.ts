@@ -50,7 +50,6 @@ export default class agendaService {
 
     public static getEndedAgendas = async () => {
         try {
-            console.log(this.API_URL)
             const response = await axios.get<Agenda[]>(`${this.API_URL}/agenda`)
             return response.data
         } catch (error) {

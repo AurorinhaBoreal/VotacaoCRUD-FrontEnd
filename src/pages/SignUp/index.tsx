@@ -21,9 +21,7 @@ export default function SignUp() {
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
     if (name == "cpf") {
-      console.log("Antes: "+value)
-      let formattedCPF = value.replace(/\D/g, '');
-      console.log("DEPOIS:"+formattedCPF)
+      const formattedCPF: string = value.replace(/\D/g, '');
       setFormData({
         ...formData,
         cpf: formattedCPF,
@@ -39,7 +37,6 @@ export default function SignUp() {
 
   const handleSubmit = async () => {
     
-    console.log("Formatado?"+formData.cpf)
     const response = await userService.createUser(formData);
     if (response) { 
       toast({

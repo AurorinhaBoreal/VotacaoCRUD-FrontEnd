@@ -26,9 +26,7 @@ export default function AgendaModal(props: modal) {
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>): void => {
         const { name, value } = e.target;
         if (name == "cpf") {
-            console.log("Antes: "+value)
-            let formattedCPF = value.replace(/\D/g, '');
-            console.log("DEPOIS:"+formattedCPF)
+            const formattedCPF: string = value.replace(/\D/g, '');
             setFormData({
               ...formData,
               cpf: formattedCPF,
@@ -59,8 +57,7 @@ export default function AgendaModal(props: modal) {
     }
 
     const handleSubmit = async () => {
-        let validation: boolean
-        validation = validateQuestion();
+        const validation: boolean = validateQuestion();
         if (validation) {
             if (formData.duration < 1) {
                 formData.duration = 1

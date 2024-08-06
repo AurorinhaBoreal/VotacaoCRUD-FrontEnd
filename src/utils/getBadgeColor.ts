@@ -1,5 +1,5 @@
 export default function getBadgeColor(category: string): string {
-    var colorSelector: { [key: string]: string} = {
+    const colorSelector: { [key: string]: string} = {
         "TECHNOLOGY": "orange",
         "SPORTS": "green",
         "PROGRAMMING": "purple",
