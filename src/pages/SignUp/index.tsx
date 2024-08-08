@@ -91,8 +91,8 @@ export default function SignUp() {
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Select Role:</FormLabel>
               <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"} height={"2.2vw"} fontSize={"2vh"} padding={0} width={"30vh"}>
-                <option value={"C"}>Common</option>
-                <option value={"A"}>Administrator</option>
+                <option value={"COMMON"}>Common</option>
+                <option value={"ADMIN"}>Administrator</option>
               </Select>
             </Box>
             <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mb={4}>

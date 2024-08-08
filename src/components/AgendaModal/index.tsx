@@ -131,10 +131,10 @@ export default function AgendaModal(props: modal) {
                         <FormLabel className={styles.inputLabels}>Select Role:</FormLabel>
                         <Box display="flex" justifyContent="center">
                             <Select className={styles.category} name="category" value={formData.category} onChange={handleChange} placeholder="-" width="20vw">
-                                    <option value={"S"}>Sports</option>
-                                    <option value={"T"}>Technology</option>
-                                    <option value={"O"}>Opinion</option>
-                                    <option value={"P"}>Programming</option>
+                                    <option value={"SPORTS"}>Sports</option>
+                                    <option value={"TECHNOLOGY"}>Technology</option>
+                                    <option value={"OPINION"}>Opinion</option>
+                                    <option value={"PROGRAMMING"}>Programming</option>
                             </Select>
                         </Box>
                         <FormLabel className={styles.inputLabels} mt={"2vw"}>Question:</FormLabel>
