@@ -16,9 +16,10 @@ export default function ActiveCard({agenda}: info) {
   const color = getBadgeColor(agenda.category);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const {value} = e.target;
-    setCpf(value);
-    (cpf);
+    const { value } = e.target;
+    const formattedCPF: string = value.replace(/\D/g, '');
+    setCpf(formattedCPF);
+    console.log(cpf);
   }
 
   const handleVote = async (vote: string) => {
