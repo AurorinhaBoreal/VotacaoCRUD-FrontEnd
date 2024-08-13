@@ -1,4 +1,5 @@
 import { Box, Text } from "@chakra-ui/react"
+import styles from "./lcw.module.css"
 import LogCard from "../LogCard"
 import Log from "../../types/Log"
 
@@ -17,9 +18,9 @@ export default function LogCardsWrapper({ emptyTitle, logs}: info) {
                 </Text>
               </Box>
             ) : (
-                <Box display={"flex"} flexDirection={"column"} gap={"0.7vw"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
+                <Box className={styles.logWrapper} display={"flex"} flexDirection={"column"} gap={"0.7vw"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
                     {logs.map((log, index) => {
-                        return (<LogCard key={index} log={log}/>)
+                        return (<LogCard log={log} index={index} key={index}/>)
                     })}
                 </Box>
             )}

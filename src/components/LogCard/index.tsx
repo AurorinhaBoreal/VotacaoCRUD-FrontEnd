@@ -1,12 +1,14 @@
 import { Box, Text } from "@chakra-ui/react"
 import styles from "./lc.module.css"
 import Log from "../../types/Log";
+import { info } from "console";
 
 interface info {
   log: Log
+  index: number
 }
 
-export default function LogCard({log}: info) {
+export default function LogCard({log, index}: info) {
   const createdIn: string[] = log.realizedOn.split("T");
 
   return (
@@ -57,6 +59,9 @@ export default function LogCard({log}: info) {
           {log.objectInfo}
         </Text>
       </Box>
+      <Text className={styles.numerator}>
+          {index+1}
+      </Text>
     </Box>
   )
 }
