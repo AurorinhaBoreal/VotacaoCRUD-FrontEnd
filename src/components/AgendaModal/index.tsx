@@ -31,7 +31,6 @@ export default function AgendaModal(props: modal) {
               ...formData,
               cpf: formattedCPF,
             });
-            ("DEPOIS de ADD"+formData.cpf)
           } else {
             setFormData({
               ...formData,
