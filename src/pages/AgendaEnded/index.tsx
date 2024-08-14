@@ -50,7 +50,7 @@ export default function AgendaActive() {
     <Box >
       <Header/>
       <Box className={styles.bodyContainer}>
-        <Box className={styles.titleContainer} width={"fit-content"}>
+        <Box className={styles.titleContainer} width={"fit-content"} mb={"2vw"}>
           <Text className={styles.title}>Ended Agendas</Text>
         </Box>
         {loading ? (

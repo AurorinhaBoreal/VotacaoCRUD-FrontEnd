@@ -1,0 +1,29 @@
+
+.bodyContainer{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    margin: 0 5vw !important;
+}
+
+.noCards {
+    font-size: 1.5vw;
+}
+
+@media all and (max-width: 1000px) {
+    .cardWrapper {
+        width: 40vw;
+        margin-right: 1vw;
+        margin-left: 1vw;
+    }   
+}
+
+@media all and (max-width: 500px) {
+    .bodyContainer {
+        width: 80vw;
+        display: inline;
+    }
+    .noCards {
+        font-size: 3vw !important;
+    } 
+}

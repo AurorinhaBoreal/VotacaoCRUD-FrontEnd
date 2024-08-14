@@ -15,7 +15,7 @@ export default function EndedCard({agenda}: info) {
 
   return (
     <Box className={styles.cardContainer}>
-        <Badge colorScheme={color} mt={"0.7vw"} fontSize={"0.8vw"} border={"0.2vw solid #666666"} borderRadius={15}>{agenda.category}</Badge>
+        <Badge className={styles.badge} colorScheme={color} mt={"0.7vw"} border={"0.2vw solid #666666"} borderRadius={15}>{agenda.category}</Badge>
         <Text className={styles.question}>{agenda.question}</Text>
         <VotesContainer agenda={agenda}/>
         <Box className={styles.dateContainer}>
