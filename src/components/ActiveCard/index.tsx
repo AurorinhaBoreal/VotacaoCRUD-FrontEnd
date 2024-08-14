@@ -54,10 +54,10 @@ export default function ActiveCard({agenda}: info) {
 
   return (
     <Box className={styles.cardContainer}>
-        <Badge colorScheme={color} mt={"0.7vw"} fontSize={"0.8vw"} border={"0.2vw solid #666666"} borderRadius={15}>{agenda.category}</Badge>
+        <Badge className={styles.badge} colorScheme={color} mt={"0.7vw"} border={"0.2vw solid #666666"} borderRadius={15}>{agenda.category}</Badge>
         <Text className={styles.question}>{agenda.question}</Text>
         <Box width={"100%"} display={"flex"} flexDirection={"column"} alignItems={"center"}>
-          <Input onChange={handleChange} value={cpf} type="number" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" w={"60%"} h={"2vw"} bg={"var(--c-gray1)"} color={"black"} fontSize={"1vw"}/>
+          <Input className={styles.cpfInput} onChange={handleChange} value={cpf} type="number" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" bg={"var(--c-gray1)"} color={"black"}/>
           <Box className={styles.buttonWrapper}>
             <Button className={styles.voteButton} onClick={() => handleVote("Y")} bg={"var(--c-green)"} _hover={{ bg: "main.350" }}>YES</Button>
             <Button className={styles.voteButton} onClick={() => handleVote("N")} bg={"var(--c-red)"} _hover={{ bg: "main.450" }}>NO</Button>
