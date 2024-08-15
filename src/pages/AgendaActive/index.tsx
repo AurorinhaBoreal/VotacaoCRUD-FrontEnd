@@ -51,14 +51,14 @@ export default function AgendaActive() {
     <Box >
       <Header/>
       <Box className={styles.bodyContainer}>
-        <Box className={styles.titleContainer} width={"fit-content"}>
+        <Box className={styles.titleContainer} width={"fit-content"} mb={"2vw"}>
           <Text className={styles.title}>Active Agendas</Text>
           <PlusIcon/>
         </Box>
         {loading ? (
           <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <ActiveCardsWrapper agendas={data} emptyTitle={emptyText}/> : (
           <Box bg={"rgba(0,0,0,0.7)"} borderRadius={20}>
-            <Text width={"30ch"} color={"red"} fontSize={"2vw"} padding={"2vw"} textAlign={"justify"}>
+            <Text className={styles.connText} width={"30ch"} color={"red"} padding={"2vw"} textAlign={"justify"}>
               Please verify your connection. If considered necessary, create an Issue in the GitHub repository
             </Text>
           </Box>

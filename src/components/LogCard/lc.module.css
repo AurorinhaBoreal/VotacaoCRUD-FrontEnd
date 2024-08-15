@@ -43,6 +43,34 @@
     align-items: center;
     justify-content: center;
     width: 60%;
-    padding: 0 1vw;
+    padding: 0 0 0 1vw;
 }
 
+.numerator {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+@media all and (max-width: 1500px) {
+    .numerator {
+        visibility: hidden;
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .numerator {
+        font-size: 1.4vw;
+        visibility: visible;
+    }
+}
+@media all and (max-width: 500px) { 
+    .numerator {
+        visibility: hidden;
+    }
+    .cardContainer {
+        width: 70vw;
+    }
+    .title, .info {
+        font-size: 2vw;
+    }
+}

@@ -1,3 +1,7 @@
+.closeButton {
+    width: 2vw !important;
+}
+
 .modalHeader{
     text-align: center;
     border-top-left-radius: 20px;
@@ -45,4 +49,79 @@
     background-color: #fff !important;
     border: 2px solid var(--c-lightBlue) !important;
     text-align: center;
+}
+
+.tooltips {
+    max-width: 25 !important;
+    height: 1vw !important;
+    width: 1vw !important;
+    margin-left: 1vw !important;
+}
+
+@media all and (max-width: 1000px) {
+    .modalBody {
+        width: 300px !important;
+    }
+    .closeButton {
+        height: 2.5vw !important;
+    }
+    .modalHeader {
+        font-size: 2vw !important;
+    }
+    .inputLabels {
+        margin-bottom: 0px !important;
+    }
+    .inputs {
+        width: 20vw !important;
+        font-size: 1.5vw !important;
+    }
+    .category {
+        font-size: 1.5vw !important;
+        height: 4vw !important;
+    }
+    .question {
+        align-self: center !important;
+        width: 20vw !important;
+        font-size: 1.5vw !important;
+    }
+}
+
+@media all and (max-width: 700px) {
+    .closeButton {
+        font-size: 1.5vw !important;
+    }
+    .inputLabels {
+        font-size: 2vw !important;
+    }
+    .tooltips {
+        height: 2vw !important;
+        width: 2vw !important;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .modalBody {
+        width: 200px !important;
+    }
+    .closeButton {
+        height: 2vw !important;
+    }
+    .category {
+        font-size: 2vw !important;
+        height: 6vw !important;
+    }
+    .question {
+        font-size: 2vw !important;
+    }
+    .modalHeader {
+        font-size: 2.5vw !important;
+    }
+    .inputLabels {
+        margin-top: 2vw !important;
+    }
+    .inputs {
+        height: 3vw !important;
+        width: 25vw !important;
+        font-size: 2vw !important;
+    }
 }

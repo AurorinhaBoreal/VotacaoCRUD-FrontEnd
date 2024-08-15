@@ -1,0 +1,37 @@
+.plusIcon {
+    width: 1.5vw !important;
+    height: 1.5vw !important;
+}
+
+.buttonBody {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+    padding: 1.5vw !important;
+    margin: 1.5vw !important;
+}
+
+@media all and (max-width: 700px) {
+    .plusIcon {
+        width: 1vw !important;
+        height: 1vw !important;
+    }
+    .buttonBody {
+        min-width: 0 !important;
+        width: 3.5vw !important;
+        height: 3vw !important;
+        padding: 1vw !important;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .plusIcon {
+        width: 1.5vw !important;
+        height: 1.5vw !important;
+    }
+    .buttonBody {
+        min-width: 0 !important;
+        width: 5vw !important;
+        height: 3.5vw;
+        padding: 1vw;
+    }
+}
