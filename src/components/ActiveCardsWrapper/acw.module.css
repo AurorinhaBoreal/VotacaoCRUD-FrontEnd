@@ -1,0 +1,25 @@
+.noCards {
+    font-size: 1.5vw;
+}
+
+@media all and (max-width: 1000px) {
+    .cardWrapper {
+        width: 40vw;
+        margin-right: 1vw;
+        margin-left: 1vw;
+    }
+    .noCards {
+        font-size: 2vw !important;
+    }    
+}
+
+@media all and (max-width: 500px) {
+    .cardWrapper {
+        width: 100vw;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .noCards {
+        font-size: 3vw !important;
+    }    
+}

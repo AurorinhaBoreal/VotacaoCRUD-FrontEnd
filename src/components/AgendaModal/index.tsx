@@ -31,7 +31,6 @@ export default function AgendaModal(props: modal) {
               ...formData,
               cpf: formattedCPF,
             });
-            ("DEPOIS de ADD"+formData.cpf)
           } else {
             setFormData({
               ...formData,
@@ -120,21 +119,22 @@ export default function AgendaModal(props: modal) {
 
     return (
         <Modal
+                size={"xl"}
                 isOpen={isOpen}
                 onClose={onClose}
             >
                 <ModalOverlay />
-                <ModalContent bg="#e6e6e6" borderRadius={20} width={"40vw"} display={"flex"}>
+                <ModalContent className={styles.modalBody} bg="#e6e6e6" borderRadius={20} display={"flex"}>
                     <ModalHeader className={styles.modalHeader} bg={"main.200"}>Create Agenda</ModalHeader>
-                    <ModalCloseButton color={"black"} width={"2vw"}/>
+                    <ModalCloseButton className={styles.closeButton} color={"black"}/>
                     <FormControl className={styles.formContainer} mt={"2vw"} >
                         <FormLabel className={styles.inputLabels}>Select Role:</FormLabel>
                         <Box display="flex" justifyContent="center">
-                            <Select className={styles.category} name="category" value={formData.category} onChange={handleChange} placeholder="-" width="20vw">
-                                    <option value={"S"}>Sports</option>
-                                    <option value={"T"}>Technology</option>
-                                    <option value={"O"}>Opinion</option>
-                                    <option value={"P"}>Programming</option>
+                            <Select className={styles.category} name="category" value={formData.category} onChange={handleChange} placeholder="-" width={"25vw"}>
+                                    <option value={"SPORTS"}>Sports</option>
+                                    <option value={"TECHNOLOGY"}>Technology</option>
+                                    <option value={"OPINION"}>Opinion</option>
+                                    <option value={"PROGRAMMING"}>Programming</option>
                             </Select>
                         </Box>
                         <FormLabel className={styles.inputLabels} mt={"2vw"}>Question:</FormLabel>
@@ -142,14 +142,14 @@ export default function AgendaModal(props: modal) {
                         <FormLabel className={styles.inputLabels}>
                             Duration:
                             <Tooltip label="In Minutes - Minimal duration is 1 minute" borderRadius={10} placement="top">
-                                <InfoIcon maxWidth={25} boxSize={"1vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
+                                <InfoIcon className={styles.tooltips} color="black" justifyContent="center" alignSelf={"center"}/>
                             </Tooltip>
                         </FormLabel>
                         <Input className={styles.inputs} type="number" name="duration" value={formData.duration} onChange={handleChange}/>
                         <FormLabel className={styles.inputLabels}>
                             CPF:
                             <Tooltip label="To create a Agenda your cpf must be related to an Admin User" borderRadius={10} placement="top">
-                                <InfoIcon maxWidth={25} boxSize={"1vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
+                                <InfoIcon className={styles.tooltips} color="black" justifyContent="center" alignSelf={"center"}/>
                             </Tooltip>
                         </FormLabel>
                         <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.inputs} type="text" name="cpf" value={formData.cpf} onChange={handleChange}/>

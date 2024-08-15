@@ -45,3 +45,9 @@
     margin-right: 3vw;
     font-weight: 700;
 }
+
+@media all and (max-width: 700px) {
+    .headerDivider {
+        margin: 0 1.2vw
+    }
+}

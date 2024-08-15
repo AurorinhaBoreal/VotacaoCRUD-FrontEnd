@@ -9,7 +9,7 @@ interface info {
 export default function VotesContainer({agenda}: info) {
   return (
     <Box className={styles.votesContainer}>
-          <Text fontFamily="Roboto Slab" fontSize={"1vw"} mb={"0.2vw"} color="main.200">VOTES</Text>
+          <Text fontFamily="Roboto Slab" mb={"0.2vw"} color="main.200">VOTES</Text>
           <Box className={styles.totalVotes}>
               <Box className={styles.header} bg="main.200">
                   TOTAL
