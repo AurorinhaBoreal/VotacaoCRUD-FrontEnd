@@ -90,8 +90,8 @@ This topic refers to all the technologies used in the project and the steps to b
 
 ### US's - Extra
 
-- 🚧 [US00X] Extra Features
-  - 🚧 [US00X-1] Refactor for Better Responsiveness - MediaQuery
+- ✅ [US00X] Extra Features
+  - ✅ [US00X-1] Refactor for Better Responsiveness - MediaQuery
 
 
 ## License
