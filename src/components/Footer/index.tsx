@@ -19,7 +19,7 @@ export default function Footer() {
                 backgroundColor="var(--c-lightBlue)"
                 colorScheme='gray'
                 aria-label='GitHub Link'
-                icon={<Icon as={FaGithubSquare} boxSize={10}/>}
+                icon={<Icon as={FaGithubSquare} boxSize={8}/>}
             />
             <IconButton
                 onClick={() => window.open(linkedIn, "_blank")}
@@ -27,7 +27,7 @@ export default function Footer() {
                 backgroundColor="var(--c-lightBlue)"
                 colorScheme='gray'
                 aria-label='LinkedIn Link'
-                icon={<Icon as={FaLinkedin} boxSize={10}/>}
+                icon={<Icon as={FaLinkedin} boxSize={8}/>}
             />
         </Box>
     </Box>
