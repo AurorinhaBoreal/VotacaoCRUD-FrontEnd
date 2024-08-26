@@ -19,7 +19,6 @@ export default function ActiveCard({agenda}: info) {
     const { value } = e.target;
     const formattedCPF: string = value.replace(/\D/g, '');
     setCpf(formattedCPF);
-    console.log(cpf);
   }
 
   const handleVote = async (vote: string) => {
