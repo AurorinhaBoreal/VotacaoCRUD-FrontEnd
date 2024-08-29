@@ -1,8 +1,8 @@
 import { Badge, Box, Text } from "@chakra-ui/react"
 import styles from "./ec.module.css"
-import Agenda from "../../types/Agenda"
+import Agenda from "../../../types/Agenda"
 import VotesContainer from "./Votes";
-import getBadgeColor from "../../utils/getBadgeColor"
+import getBadgeColor from "../../../utils/getBadgeColor"
 
 interface info {
   agenda: Agenda

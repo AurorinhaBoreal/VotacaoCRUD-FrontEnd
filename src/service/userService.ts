@@ -1,5 +1,6 @@
 import axios from "axios";
 import CreateUserDTO from "../types/CreateUserDTO";
+import User from "../types/User";
 
 export default class userService {
     private static readonly API_URL = import.meta.env.VITE_API_URL;
@@ -23,7 +24,12 @@ export default class userService {
 
     public static validateUser = async (cpf: string) => {
         try {
-            await axios.post(`${this.API_URL}/user/validate`, cpf);
+            await axios.post(`${this.API_URL}/user/validate`, cpf, {
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+            });
+           
             return null;
         } catch (error) {
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
@@ -36,5 +42,14 @@ export default class userService {
             }
         }
         return "Unexpected Error Ocurred"
+    }
+
+    public static getUsers = async () => {
+        try {
+            const response = await axios.get<User[]>(`${this.API_URL}/user`)
+            return response.data
+        } catch (error) {
+            return null
+        }
     }
 }
