@@ -2,7 +2,7 @@ import axios from "axios"
 import Log from "../types/Log"
 
 
-export default class LogService {
+export default class logService {
     private static readonly API_URL = import.meta.env.VITE_API_URL;
 
     public static getLogs = async () => {

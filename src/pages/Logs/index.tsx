@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { debounce } from "lodash";
 import LogCardsWrapper from "../../components/LogCardsWrapper";
 import Log from "../../types/Log";
-import LogService from "../../service/logService";
+import logService from "../../service/logService";
 
 export default function AgendaActive() {
   const [loading, setLoading] = useState(true)
@@ -14,9 +14,9 @@ export default function AgendaActive() {
   const [data, setData] = useState<Log[]>()
   const toast = useToast()
 
-  const getAgendas = useMemo(() => debounce(async () => {
+  const getLogs = useMemo(() => debounce(async () => {
     try {
-      const data = await LogService.getLogs();
+      const data = await logService.getLogs();
       if (!data) {
         throw new Error("Connection Error");
       }
@@ -44,8 +44,8 @@ export default function AgendaActive() {
 
   useEffect(() => {
     ("AgendaEnded component mounted");
-    getAgendas()
-  }, [getAgendas])
+    getLogs()
+  }, [getLogs])
 
   return (
     <Box >
