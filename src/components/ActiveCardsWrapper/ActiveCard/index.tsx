@@ -1,10 +1,10 @@
 import { Badge, Box, Text, Input, Button, useToast } from "@chakra-ui/react"
 import styles from "./ac.module.css"
-import Agenda from "../../types/Agenda"
-import AddVote from "../../types/AddVote"
+import Agenda from "../../../types/Agenda"
+import AddVote from "../../../types/AddVote"
 import { ChangeEvent, useState } from "react"
-import agendaService from "../../service/agendaService"
-import getBadgeColor from "../../utils/getBadgeColor"
+import agendaService from "../../../service/agendaService"
+import getBadgeColor from "../../../utils/getBadgeColor"
 
 interface info {
   agenda: Agenda

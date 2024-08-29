@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react"
 import styles from "./lc.module.css"
-import Log from "../../types/Log";
+import Log from "../../../types/Log";
 import { info } from "console";
 
 interface info {
