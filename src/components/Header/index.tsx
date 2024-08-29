@@ -29,6 +29,12 @@ export default function Header() {
                   Logs
                 </Text>
               </Link>
+              <Box className={styles.headerDivider}/>
+                <Link to={"/user-validation"}>
+                  <Text className={styles.headerText}>
+                    Users
+                  </Text>
+                </Link>
           </Box>
         </Box>
         <Box className={styles.infoRight}>
