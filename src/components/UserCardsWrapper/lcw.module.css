@@ -1,0 +1,33 @@
+
+@media all and (min-width: 1500px) {
+    .logWrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: initial !important;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 1000px) { 
+    .logWrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        flex-direction: initial !important;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 500px) { 
+    .logWrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
