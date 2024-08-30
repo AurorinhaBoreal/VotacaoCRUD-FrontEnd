@@ -34,7 +34,7 @@ export default function UsersValidation() {
         navigate("/users")
         } else {
             toast({
-                position: "bottom-right",
+                position: "bottom",
                 status: "error",
                 title: 'Error', 
                 description: response,

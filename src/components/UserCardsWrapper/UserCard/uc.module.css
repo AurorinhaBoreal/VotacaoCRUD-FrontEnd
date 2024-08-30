@@ -1,5 +1,6 @@
 .cardContainer {
     display: flex;
+    flex-direction: column;
     background-color: var(--c-gray2);
     margin-bottom: 1.5vw;
     width: 24vw;
@@ -25,6 +26,20 @@
     margin-top: 0;
     font-weight: 600;
     font-size: 1.5vw;
+}
+
+.delBtn {
+    align-self: center;
+    gap: 0.5vw;
+    width: 60%;
+    margin-top: 1vw;
+    background-color: rgb(235, 100, 100) !important;
+    border: 0.2vw solid black;
+    font-size: 1.3vw !important;
+}
+
+.delBtn:hover {
+    background-color: rgb(202, 68, 68) !important;
 }
 
 @media all and (max-width: 500px) { 

@@ -8,7 +8,7 @@ interface info {
     users: User[]
 }
 
-export default function LogCardsWrapper({ emptyTitle, users}: info) {
+export default function UsersCardsWrapper({ emptyTitle, users}: info) {
     return (
         <>
             {emptyTitle ? (
@@ -18,7 +18,7 @@ export default function LogCardsWrapper({ emptyTitle, users}: info) {
                 </Text>
               </Box>
             ) : (
-                <Box className={styles.logWrapper} display={"flex"} flexDirection={"column"} gap={"0.7vw"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
+                <Box className={styles.userWrapper} display={"flex"} flexDirection={"column"} gap={"0.7vw"} marginRight={"5vw"} marginLeft={"5vw"} justifyContent={"center"}>
                     {users.map((user, index) => {
                         return (<UserCard user={user} index={index} key={index}/>)
                     })}

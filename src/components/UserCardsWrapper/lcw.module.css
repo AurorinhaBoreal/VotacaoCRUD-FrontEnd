@@ -1,6 +1,6 @@
 
 @media all and (min-width: 1500px) {
-    .logWrapper {
+    .userWrapper {
         display: flex !important;
         flex-wrap: wrap !important;
         flex-direction: initial !important;
@@ -11,7 +11,7 @@
 }
 
 @media all and (max-width: 1000px) { 
-    .logWrapper {
+    .userWrapper {
         display: flex !important;
         flex-wrap: wrap !important;
         flex-direction: initial !important;
@@ -22,7 +22,7 @@
 }
 
 @media all and (max-width: 500px) { 
-    .logWrapper {
+    .userWrapper {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;

@@ -1,7 +1,9 @@
-import { Box, Text } from "@chakra-ui/react"
+import { Box, Button, Text, useToast } from "@chakra-ui/react"
+import { DeleteIcon } from "@chakra-ui/icons"
 import styles from "./uc.module.css"
 import User from "../../../types/User";
-import { info } from "console";
+// import { info } from "console";
+import userService from "../../../service/userService";
 
 interface info {
   user: User
@@ -9,6 +11,36 @@ interface info {
 }
 
 export default function LogCard({user, index}: info) {
+  const toast = useToast()
+
+  const formatCpf = (cpf: string) => {
+    if (cpf) {
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    }
+  }
+
+  const deleteUser = async (cpf: string) => {
+    const response = await userService.removeUser(cpf);
+    if (!response) {
+      toast({
+          position: "bottom",
+          status: "success",
+          title: "User Deleted",
+          description: "The user was deleted. Reload the page to update the information.",
+          duration: 10000,
+          isClosable: true
+      })
+    } else {
+        toast({
+            position: "bottom",
+            status: "error",
+            title: 'Error', 
+            description: response,
+            duration: 5000,
+            isClosable: false
+        })
+    }
+  }
 
   return (
     <Box className={styles.cardContainer}>
@@ -26,10 +58,14 @@ export default function LogCard({user, index}: info) {
               CPF - Role:
             </Text>
             <Text className={styles.info}>
-              {user.cpf+" - "+user.userType}
+              {formatCpf(user.cpf)+" - "+user.userType}
             </Text>
           </Box>
       </Box>
+      <Button className={styles.delBtn} onClick={() => deleteUser(user.cpf)}>
+        <DeleteIcon/>
+        Delete
+      </Button>
     </Box>
   )
 }
