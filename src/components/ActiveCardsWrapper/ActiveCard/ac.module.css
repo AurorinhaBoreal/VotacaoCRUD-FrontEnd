@@ -40,6 +40,19 @@
     width: 4vw; 
 }
 
+.endBtn {   
+    align-self: center;
+    gap: 0.5vw;
+    width: 50%;
+    margin-bottom: 1vw;
+    background-color: rgb(230, 150, 96) !important;
+    border: 0.2vw solid black;
+    font-size: 1.3vw !important;
+}
+.endBtn:hover {
+    background-color: rgb(196, 110, 53) !important;
+}
+
 @media all and (max-width: 1000px) {
     .buttonWrapper {
         gap: 1vw;

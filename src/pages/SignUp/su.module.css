@@ -154,6 +154,7 @@ body {
         color: var(--c-white)
     }
     .textInput {
+        font-size: 2vw !important;
         width: 30vw !important;
     }
     .textLabels {

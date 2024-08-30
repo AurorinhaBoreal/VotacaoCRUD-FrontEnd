@@ -13,27 +13,33 @@ export default function Header() {
           <Box className={styles.headerDivider}/>
           <Box className={styles.linksWrapper}>
             <Link to={"/agenda-active"}>
-              <Text className={styles.headerText}>
+              <Text className={styles.headerText} data-cy="Header-AA">
                 Active Agendas
               </Text>
             </Link>
             <Box className={styles.headerDivider}/>
               <Link to={"/agenda-ended"}>
-                <Text className={styles.headerText}>
+                <Text className={styles.headerText} data-cy="Header-EA">
                   Ended Agendas
                 </Text>
               </Link>
             <Box className={styles.headerDivider}/>
               <Link to={"/logs"}>
-                <Text className={styles.headerText}>
+                <Text className={styles.headerText} data-cy="Header-L">
                   Logs
                 </Text>
               </Link>
+              <Box className={styles.headerDivider}/>
+                <Link to={"/user-validation"}>
+                  <Text className={styles.headerText} data-cy="Header-U">
+                    Users
+                  </Text>
+                </Link>
           </Box>
         </Box>
         <Box className={styles.infoRight}>
           <Link to={"/"}>
-            <Text className={styles.signUpText}>
+            <Text className={styles.signUpText} data-cy="Header-SU">
               Sign Up
             </Text>
           </Link>

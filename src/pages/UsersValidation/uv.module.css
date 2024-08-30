@@ -1,0 +1,54 @@
+body, html {
+    width: 100vw;
+    height: auto;
+}
+
+.validationContainer {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+    background-size: fill;
+    background-image: url("../../assets/background.png");
+    object-fit: fill;
+    box-sizing: border-box;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    width: 25vw !important;
+    background-color: var(--c-lightBlue);
+    margin-top: 8vw;
+    padding: 1vw;
+    border-radius: 15px;
+    border: 0.5vw solid var(--c-yellow);
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    color: var(--c-yellow);
+    font-size: 3vw;
+    font-family: "Roboto Slab";
+    font-weight: 600;
+    padding: 0 20px;
+}
+
+.description {
+    text-align: center;
+    width: 30ch;
+    font-size: 1.2vw;
+}
+
+.cpfInput {
+    margin-top: 1.5vw;
+    width: 50% !important;
+}
+
+.validateBtn{
+    height: 2.5vw !important;
+    font-weight: 700 !important;
+    margin-top: 1vw !important;
+    font-size: 1.2rem !important;
+}

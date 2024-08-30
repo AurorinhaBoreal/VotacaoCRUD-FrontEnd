@@ -1,7 +1,7 @@
 import { Box, Text } from "@chakra-ui/react"
 import styles from "./acw.module.css"
 import Agenda from "../../types/Agenda"
-import ActiveCard from "../ActiveCard"
+import ActiveCard from "./ActiveCard"
 
 interface info {
     emptyTitle: boolean

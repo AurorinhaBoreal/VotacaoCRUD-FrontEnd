@@ -43,6 +43,26 @@
     margin-bottom: 0.5vw;
 }
 
+.cpfInput {
+    width: 60% !important;
+    height: 2vw !important;
+    font-size: 1vw !important;
+}
+
+.delBtn {
+    align-self: center;
+    gap: 0.5vw;
+    width: 60%;
+    margin: 1.5vw 0vw;
+    background-color: rgb(235, 100, 100) !important;
+    border: 0.2vw solid black;
+    font-size: 1.3vw !important;
+}
+
+.delBtn:hover {
+    background-color: rgb(202, 68, 68) !important;
+}
+
 @media all and (max-width: 700px) {
     .cardContainer {
         width: 25vw;
@@ -58,6 +78,9 @@
     }
     .dateInfo {
         font-size: 1.6vw;
+    }
+    .cpfInput {
+        width: 50% !important;
     }
 }
 
