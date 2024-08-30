@@ -44,7 +44,7 @@ export default function AgendaModal(props: modal) {
             return true
         } else {
             toast({
-                position: "bottom-right",
+                position: "bottom",
                 status: "warning",
                 title: "Question Format",
                 description: "Your question didn't have a question Mark. For better redability and logic insert one.",
@@ -61,7 +61,7 @@ export default function AgendaModal(props: modal) {
             if (formData.duration < 1) {
                 formData.duration = 1
                 toast({
-                    position: "bottom-right",
+                    position: "bottom",
                     status: "warning",
                     title: 'Minimum Duration', 
                     description: 'The duration was set to mininum (1 Minute), because a valid one was not informed!',
@@ -71,7 +71,7 @@ export default function AgendaModal(props: modal) {
             } else if (formData.duration > 999) {
                 formData.duration = 999
                 toast({
-                    position: "bottom-right",
+                    position: "bottom",
                     status: "warning",
                     title: 'Maximum Duration', 
                     description: 'The duration was set to maximum (999 Minutes), because the maximum one was excedeed!',
@@ -82,7 +82,7 @@ export default function AgendaModal(props: modal) {
             const response = await agendaService.createAgenda(formData);
             if (response == "sucess") {
                 toast({
-                    position: "bottom-right",
+                    position: "bottom",
                     status: "success",
                     title: "Agenda Created",
                     description: "Your Agenda was created Succesfully. Reload the page to see it.",
@@ -97,7 +97,7 @@ export default function AgendaModal(props: modal) {
                 })
             } else if (response) {
                 toast({
-                    position: "bottom-right",
+                    position: "bottom",
                     status: "error",
                     title: 'Error', 
                     description: response,
@@ -107,7 +107,7 @@ export default function AgendaModal(props: modal) {
             }
         } else {
             toast({
-                position: "bottom-right",
+                position: "bottom",
                 status: "error",
                 title: 'Invalid Creation', 
                 description: "Please verify your information and try again.",
