@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react"
 import styles from "./lcw.module.css"
-import LogCard from "../LogCard"
+import LogCard from "./LogCard"
 import Log from "../../types/Log"
 
 interface info {

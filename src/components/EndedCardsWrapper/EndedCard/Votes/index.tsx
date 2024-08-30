@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react'
 import styles from "./v.module.css"
-import Agenda from '../../../types/Agenda'
+import Agenda from '../../../../types/Agenda'
 
 interface info {
   agenda: Agenda

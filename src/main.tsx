@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound/index.tsx';
 import AgendaActive from './pages/AgendaActive/index.tsx'
 import AgendaEnded from './pages/AgendaEnded/index.tsx'
 import Logs from './pages/Logs/index.tsx'
+import Users from './pages/Users/index.tsx';
+import UsersValidation from './pages/UsersValidation/index.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/logs",
     element: <Logs/>
+  },
+  {
+    path: "/user-validation",
+    element: <UsersValidation/>
+  },
+  {
+    path: "/users",
+    element: <Users/>
   },
   {
     path: "*",

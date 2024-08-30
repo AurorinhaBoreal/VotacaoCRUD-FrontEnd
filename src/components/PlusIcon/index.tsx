@@ -9,6 +9,7 @@ export default function PlusIcon() {
     return (
         <>
             <IconButton
+                    data-cy="buttonCA"
                     className={styles.buttonBody}
                     icon={<AddIcon className={styles.plusIcon}
                         color="mono.100"

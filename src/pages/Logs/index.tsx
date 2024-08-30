@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { debounce } from "lodash";
 import LogCardsWrapper from "../../components/LogCardsWrapper";
 import Log from "../../types/Log";
-import LogService from "../../service/logService";
+import logService from "../../service/logService";
 
 export default function AgendaActive() {
   const [loading, setLoading] = useState(true)
@@ -14,9 +14,9 @@ export default function AgendaActive() {
   const [data, setData] = useState<Log[]>()
   const toast = useToast()
 
-  const getAgendas = useMemo(() => debounce(async () => {
+  const getLogs = useMemo(() => debounce(async () => {
     try {
-      const data = await LogService.getLogs();
+      const data = await logService.getLogs();
       if (!data) {
         throw new Error("Connection Error");
       }
@@ -44,15 +44,15 @@ export default function AgendaActive() {
 
   useEffect(() => {
     ("AgendaEnded component mounted");
-    getAgendas()
-  }, [getAgendas])
+    getLogs()
+  }, [getLogs])
 
   return (
     <Box >
       <Header/>
       <Box className={styles.bodyContainer}>
         <Box className={styles.titleContainer} width={"fit-content"} mb={"2vw"}>
-          <Text className={styles.title}>Logs</Text>
+          <Text className={styles.title} data-cy="title-L">Logs</Text>
         </Box>
         {loading ? (
           <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <LogCardsWrapper logs={data} emptyTitle={emptyText}/> : (

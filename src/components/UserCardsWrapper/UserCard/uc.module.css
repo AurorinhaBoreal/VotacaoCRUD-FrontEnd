@@ -1,0 +1,52 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--c-gray2);
+    margin-bottom: 1.5vw;
+    width: 24vw;
+    color: var(--c-lightBlue);
+    border: 0.5vw solid var(--c-lightBlue);
+    border-radius: 1vw;
+    padding: 1vw;
+}
+
+.generalInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 2vw;
+}
+
+.title {
+    opacity: 0.7;
+    font-size: 1.1vw;
+}
+
+.info {
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.delBtn {
+    align-self: center;
+    gap: 0.5vw;
+    width: 60%;
+    margin-top: 1vw;
+    background-color: rgb(235, 100, 100) !important;
+    border: 0.2vw solid black;
+    font-size: 1.3vw !important;
+}
+
+.delBtn:hover {
+    background-color: rgb(202, 68, 68) !important;
+}
+
+@media all and (max-width: 500px) { 
+    .cardContainer {
+        width: 30vw;
+    }
+    .title, .info {
+        font-size: 2vw;
+    }
+}

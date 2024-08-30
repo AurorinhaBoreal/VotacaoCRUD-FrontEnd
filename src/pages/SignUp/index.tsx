@@ -93,11 +93,11 @@ export default function SignUp() {
           <FormControl className={styles.forms}>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>First Name:</FormLabel>
-              <Input className={styles.textInput} type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input className={styles.textInput} data-cy="inputSignUp-FN-Mobile" type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>Surname:</FormLabel>
-              <Input className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input className={styles.textInput} data-cy="inputSignUp-S-Mobile" type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>
@@ -106,17 +106,18 @@ export default function SignUp() {
                   <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input data-cy="inputSignUp-CPF-Mobile" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>Select Role:</FormLabel>
               <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
-                <option value={"COMMON"}>Common</option>
-                <option value={"ADMIN"}>Administrator</option>
+                <option value={"COMMON"} data-cy="inputSignUp-SelC-Mobile">Common</option>
+                <option value={"ADMIN"} data-cy="inputSignUp-SelA-Mobile">Administrator</option>
               </Select>
             </Box>
             <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mb={4}>
               <Button
+                data-cy="buttonSignUp-Mobile"
                 className={styles.addBtn}
                 color="mono.500"
                 bg="main.200"
@@ -125,7 +126,7 @@ export default function SignUp() {
               >
                 Add to Database
               </Button>
-              <Link to={"/agenda-active"} className={styles.linkAgenda}>Or go to Active Agendas</Link>
+              <Link to={"/agenda-active"} className={styles.linkAgenda} data-cy="buttonSignUp-AA-Mobile">Or go to Active Agendas</Link>
             </Box>
           </FormControl>
         </Box>
@@ -149,11 +150,11 @@ export default function SignUp() {
           <FormControl className={styles.forms}>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>First Name:</FormLabel>
-              <Input className={styles.textInput} type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input data-cy="inputSignUp-FN" className={styles.textInput} type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Surname:</FormLabel>
-              <Input className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input data-cy="inputSignUp-S" className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>
@@ -162,17 +163,18 @@ export default function SignUp() {
                   <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input data-cy="inputSignUp-CPF" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Select Role:</FormLabel>
               <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
-                <option value={"COMMON"}>Common</option>
-                <option value={"ADMIN"}>Administrator</option>
+                <option value={"COMMON"} data-cy="inputSignUp-SelC">Common</option>
+                <option value={"ADMIN"} data-cy="inputSignUp-SelA">Administrator</option>
               </Select>
             </Box>
             <Box display={"flex"} flexDirection={"column"} alignItems={"center"} mb={4}>
               <Button
+                data-cy="buttonSignUp"
                 className={styles.addBtn}
                 color="mono.500"
                 bg="main.200"
@@ -181,7 +183,7 @@ export default function SignUp() {
               >
                 Add to Database
               </Button>
-              <Link to={"/agenda-active"} className={styles.linkAgenda}>Or go to Active Agendas</Link>
+              <Link to={"/agenda-active"} className={styles.linkAgenda} data-cy="buttonSignUp-AA">Or go to Active Agendas</Link>
             </Box>
           </FormControl>
         </Box>

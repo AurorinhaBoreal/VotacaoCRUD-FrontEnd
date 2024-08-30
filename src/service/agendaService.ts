@@ -56,4 +56,43 @@ export default class agendaService {
             return null
         }
     }
+
+    public static endEarly = async (question: string) => {
+        try {
+            console.log(question)
+            await axios.put(`${this.API_URL}/agenda/end/${question}`, {
+                headers: {
+                    'Content-Type': 'text/plain',
+                }})
+            return null;
+        } catch (error) {
+            if (axios.isAxiosError<Record<string, unknown>>(error)) {
+                if (typeof error.response?.data === 'string') {
+                    const errorMessage = error.response.data
+                    return errorMessage
+                } else {
+                    return "Reload the page and try again. If the error persists, verify your Information and Connection with API"
+                }
+            }
+        }
+    }
+
+    public static removeAgenda = async (question: string) => {
+        try {
+            await axios.delete(`${this.API_URL}/agenda/${question}`, {
+                headers: {
+                    'Content-Type': 'text/plain',
+                }})
+            return null;
+        } catch (error) {
+            if (axios.isAxiosError<Record<string, unknown>>(error)) {
+                if (typeof error.response?.data === 'string') {
+                    const errorMessage = error.response.data
+                    return errorMessage
+                } else {
+                    return "Reload the page and try again. If the error persists, verify your Information and Connection with API"
+                }
+            }
+        }
+    }
 }
