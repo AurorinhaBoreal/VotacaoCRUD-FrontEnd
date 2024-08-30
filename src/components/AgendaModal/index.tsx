@@ -131,30 +131,31 @@ export default function AgendaModal(props: modal) {
                         <FormLabel className={styles.inputLabels}>Select Role:</FormLabel>
                         <Box display="flex" justifyContent="center">
                             <Select className={styles.category} name="category" value={formData.category} onChange={handleChange} placeholder="-" width={"25vw"}>
-                                    <option value={"SPORTS"}>Sports</option>
-                                    <option value={"TECHNOLOGY"}>Technology</option>
-                                    <option value={"OPINION"}>Opinion</option>
-                                    <option value={"PROGRAMMING"}>Programming</option>
+                                    <option value={"SPORTS"} data-cy="CA-select-S">Sports</option>
+                                    <option value={"TECHNOLOGY"} data-cy="CA-select-T">Technology</option>
+                                    <option value={"OPINION"} data-cy="CA-select-O">Opinion</option>
+                                    <option value={"PROGRAMMING"} data-cy="CA-select-P">Programming</option>
                             </Select>
                         </Box>
                         <FormLabel className={styles.inputLabels} mt={"2vw"}>Question:</FormLabel>
-                        <Textarea className={styles.question} name="question" value={formData.question} onChange={handleChange}/>
+                        <Textarea data-cy="CA-text-Q" className={styles.question} name="question" value={formData.question} onChange={handleChange}/>
                         <FormLabel className={styles.inputLabels}>
                             Duration:
                             <Tooltip label="In Minutes - Minimal duration is 1 minute" borderRadius={10} placement="top">
                                 <InfoIcon className={styles.tooltips} color="black" justifyContent="center" alignSelf={"center"}/>
                             </Tooltip>
                         </FormLabel>
-                        <Input className={styles.inputs} type="number" name="duration" value={formData.duration} onChange={handleChange}/>
+                        <Input data-cy="CA-input-D" className={styles.inputs} type="number" name="duration" value={formData.duration} onChange={handleChange}/>
                         <FormLabel className={styles.inputLabels}>
                             CPF:
                             <Tooltip label="To create a Agenda your cpf must be related to an Admin User" borderRadius={10} placement="top">
                                 <InfoIcon className={styles.tooltips} color="black" justifyContent="center" alignSelf={"center"}/>
                             </Tooltip>
                         </FormLabel>
-                        <Input as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.inputs} type="text" name="cpf" value={formData.cpf} onChange={handleChange}/>
+                        <Input data-cy="CA-select-CPF" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.inputs} type="text" name="cpf" value={formData.cpf} onChange={handleChange}/>
                     </FormControl>
                     <Button
+                        data-cy="CA-button-CA"
                         display="flex"
                         alignSelf="center"
                         height="3vw"

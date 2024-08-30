@@ -49,7 +49,7 @@ export default function LogCard({user, index}: info) {
             <Text className={styles.title}>
               Name:
             </Text>
-            <Text className={styles.info}>
+            <Text className={styles.info} data-cy="UserName-U">
               {user.firstName+" "+user.surname}
             </Text>
           </Box>
@@ -57,12 +57,12 @@ export default function LogCard({user, index}: info) {
             <Text className={styles.title}>
               CPF - Role:
             </Text>
-            <Text className={styles.info}>
+            <Text className={styles.info} data-cy="UserCPFRole-U">
               {formatCpf(user.cpf)+" - "+user.userType}
             </Text>
           </Box>
       </Box>
-      <Button className={styles.delBtn} onClick={() => deleteUser(user.cpf)}>
+      <Button data-cy="buttonDel-U" className={styles.delBtn} onClick={() => deleteUser(user.cpf)}>
         <DeleteIcon/>
         Delete
       </Button>

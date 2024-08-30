@@ -49,10 +49,11 @@ export default function UsersValidation() {
             <Header/>
             <Box className={styles.validationContainer}>
                 <Box className={styles.infoContainer} width={"fit-content"} mb={"2vw"}>
-                    <Text className={styles.title}>Validation</Text>
+                    <Text className={styles.title} data-cy="title-V">Validation</Text>
                     <Text className={styles.description}>Please inform your cpf to be validated and access users page.</Text>
-                    <Input className={styles.cpfInput} as={InputMask} mask={"999.999.999-99"} maskChar={null} onChange={handleChange} value={cpf} type="text" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" bg={"mono.300"} color={"black"}/>
+                    <Input className={styles.cpfInput} data-cy="inputUV-CPF" as={InputMask} mask={"999.999.999-99"} maskChar={null} onChange={handleChange} value={cpf} type="text" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" bg={"mono.300"} color={"black"}/>
                     <Button className={styles.validateBtn}
+                        data-cy="buttonVal-U"
                         color="mono.500"
                         bg="main.200"
                         type='submit'

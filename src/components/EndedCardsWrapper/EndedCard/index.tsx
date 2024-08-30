@@ -86,7 +86,7 @@ export default function EndedCard({agenda}: info) {
             <Text className={styles.dateInfo}>{endedIn[0]+" - "+endedIn[1]}</Text>
         </Box>
         <Input className={styles.cpfInput} as={InputMask} mask={"999.999.999-99"} maskChar={null} onChange={handleChange} value={cpf} type="text" padding={0} textAlign={"center"} borderRadius={10} placeholder="CPF" bg={"var(--c-gray1)"} color={"black"}/>
-        <Button className={styles.delBtn} onClick={() => validateCpf(cpf)}>
+        <Button data-cy="EA-button-D" className={styles.delBtn} onClick={() => validateCpf(cpf)}>
           <DeleteIcon/>
           Delete
         </Button>

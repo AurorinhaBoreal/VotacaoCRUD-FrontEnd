@@ -52,7 +52,7 @@ export default function AgendaActive() {
       <Header/>
       <Box className={styles.bodyContainer}>
         <Box className={styles.titleContainer} width={"fit-content"} mb={"2vw"}>
-          <Text className={styles.title}>Active Agendas</Text>
+          <Text className={styles.title} data-cy="title-AA">Active Agendas</Text>
           <PlusIcon/>
         </Box>
         {loading ? (

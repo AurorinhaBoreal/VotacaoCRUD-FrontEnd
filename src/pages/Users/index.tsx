@@ -52,7 +52,7 @@ export default function Users() {
       <Header/>
       <Box className={styles.bodyContainer}>
         <Box className={styles.titleContainer} width={"fit-content"} mb={"2vw"}>
-          <Text className={styles.title}>Users</Text>
+          <Text className={styles.title} data-cy="title-U">Users</Text>
         </Box>
         {loading ? (
           <Spinner color="main.100" thickness='4px' speed='0.65s' emptyColor="mono.200"/>) : data ? <UserCardsWrapper users={data} emptyTitle={emptyText}/> : (
