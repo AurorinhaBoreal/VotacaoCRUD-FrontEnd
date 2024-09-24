@@ -9,7 +9,8 @@
     "analyze:build": "vite build && rm -f stats.html",
     "type-check": "tsc --noEmit",
     "preview": "vite preview",
-    "dev": "vite"
+    "dev": "vite",
+    "test": "vitest"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -27,6 +28,8 @@
     "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.5.0",
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -37,9 +40,11 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "jsdom": "^25.0.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4",
+    "vite": "^5.4.7",
+    "vitest": "^2.1.1",
     "webpack-bundle-analyzer": "^4.10.2"
   }
 }
