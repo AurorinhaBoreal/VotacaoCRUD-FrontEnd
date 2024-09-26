@@ -16,9 +16,11 @@ export default class userService {
 
     public static createUser = async (dataUser:CreateUserDTO) => {
         try {
+            console.log("STRING"+dataUser.cpf)
             await axios.post(`${this.API_URL}/user`, dataUser);
             return null;
         } catch (error) {
+            console.log(error)
             if (axios.isAxiosError<Record<string, unknown>>(error)) {
                 if (typeof error.response?.data === 'string') {
                     const errorMessage = error.response.data
