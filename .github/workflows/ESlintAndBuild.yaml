@@ -48,3 +48,15 @@ jobs:
 
     - name: Analyze build size
       run: npm run analyze:build
+
+  VitestTests:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Vitest
+      run: npm run test
