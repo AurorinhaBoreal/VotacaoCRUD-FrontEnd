@@ -4,25 +4,24 @@ import Logo from "/favicon.png"
 import {InfoIcon} from "@chakra-ui/icons"
 import InputMask from "react-input-mask"
 import { useState, ChangeEvent } from "react";
-import CreateUserDTO from "../../types/CreateUserDTO";
 import { useEffect } from "react";
 import userService from "../../service/userService";
 import { Link, useNavigate } from "react-router-dom";
+import { getSignUpForm } from "../../states/hooks/getSignUpForm";
+import { useChangeSignUpForm } from "../../states/hooks/useChangeSignUpForm";
+
 
 export default function SignUp() {
   const toast = useToast()
   const navigate = useNavigate()
   const [width, setWidth] = useState<number>(window.innerWidth);
-  const [formData, setFormData] = useState<CreateUserDTO>({
-    firstName: "",
-    surname: "",
-    userType: "",
-    cpf: "",
-  });
+  const changeForm = useChangeSignUpForm()
+  const userForm = getSignUpForm()
 
   function handleWindowSizeChange() {
       setWidth(window.innerWidth);
   }
+
   useEffect(() => {
       window.addEventListener('resize', handleWindowSizeChange);
       return () => {
@@ -34,17 +33,12 @@ export default function SignUp() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
     const { name, value } = e.target;
+    console.log(name, value)
     if (name == "cpf") {
       const formattedCPF: string = value.replace(/\D/g, '');
-      setFormData({
-        ...formData,
-        cpf: formattedCPF,
-      });
+      changeForm({[name]: formattedCPF});
     } else {
-      setFormData({
-        ...formData,
-        [name]: value
-      });
+      changeForm({ [name]: value})
     }
   }
 
@@ -57,7 +51,8 @@ export default function SignUp() {
       duration: 2000,
       isClosable: false
     })
-    const response = await userService.createUser(formData);
+    console.log(userForm)
+    const response = await userService.createUser(userForm);
     if (response) { 
       toast({
           position: "bottom-right",
@@ -68,7 +63,7 @@ export default function SignUp() {
           isClosable: false
         })
     } else {
-      setFormData({
+      changeForm({
         firstName: "",
         surname: "",
         userType: "",
@@ -93,11 +88,11 @@ export default function SignUp() {
           <FormControl className={styles.forms}>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>First Name:</FormLabel>
-              <Input className={styles.textInput} data-cy="inputSignUp-FN-Mobile" type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input className={styles.textInput} data-cy="inputSignUp-FN-Mobile" type="text" name="firstName" onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>Surname:</FormLabel>
-              <Input className={styles.textInput} data-cy="inputSignUp-S-Mobile" type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input className={styles.textInput} data-cy="inputSignUp-S-Mobile" type="text" name="surname" onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>
@@ -106,11 +101,11 @@ export default function SignUp() {
                   <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input data-cy="inputSignUp-CPF-Mobile" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input data-cy="inputSignUp-CPF-Mobile" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel className={styles.textLabels} display={"flex"} justifyContent={"center"} margin={0} opacity={0.8}>Select Role:</FormLabel>
-              <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
+              <Select className={styles.textInput} name="userType" onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
                 <option value={"COMMON"} data-cy="inputSignUp-SelC-Mobile">Common</option>
                 <option value={"ADMIN"} data-cy="inputSignUp-SelA-Mobile">Administrator</option>
               </Select>
@@ -150,11 +145,11 @@ export default function SignUp() {
           <FormControl className={styles.forms}>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>First Name:</FormLabel>
-              <Input data-cy="inputSignUp-FN" className={styles.textInput} type="text" name="firstName" value={formData.firstName} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input placeholder="Mauricio" data-cy="inputSignUp-FN" className={styles.textInput} type="text" name="firstName" onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Surname:</FormLabel>
-              <Input data-cy="inputSignUp-S" className={styles.textInput} type="text" name="surname" value={formData.surname} onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input placeholder="Souza" data-cy="inputSignUp-S" className={styles.textInput} type="text" name="surname" onChange={handleChange} bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>
@@ -163,11 +158,11 @@ export default function SignUp() {
                   <InfoIcon maxWidth={25} boxSize={"2vw"} ml={2} color="black" justifyContent="center" alignSelf={"center"}/>
                 </Tooltip>
               </FormLabel>
-              <Input data-cy="inputSignUp-CPF" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" value={formData.cpf} onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
+              <Input placeholder="123.456.789-10" data-cy="inputSignUp-CPF" as={InputMask} mask={"999.999.999-99"} maskChar={null} className={styles.textInput} name="cpf" onChange={handleChange} type="text" bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}/>
             </Box>
             <Box m="1vw">
               <FormLabel display={"flex"} justifyContent={"center"} margin={0} fontSize={"1.5vw"} opacity={0.8}>Select Role:</FormLabel>
-              <Select className={styles.textInput} name="userType" value={formData.userType} onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
+              <Select className={styles.textInput} name="userType" onChange={handleChange} placeholder='-' bg={"var(--c-gray2)"} color={"var(--c-black)"} textAlign={"center"}>
                 <option value={"COMMON"} data-cy="inputSignUp-SelC">Common</option>
                 <option value={"ADMIN"} data-cy="inputSignUp-SelA">Administrator</option>
               </Select>
