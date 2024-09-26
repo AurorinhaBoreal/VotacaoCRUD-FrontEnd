@@ -24,7 +24,7 @@ describe("Test userValidation Page", () => {
                 <UsersValidation/>
             </BrowserRouter>
         )
-        const inputCPF = screen.getByAltText("CPF Input") as HTMLInputElement
+        const inputCPF = screen.getByRole("input") as HTMLInputElement
 
         fireEvent.change(inputCPF, { target: { value: "12345678910" } });
         expect(inputCPF.value).toBe("123.456.789-10");
